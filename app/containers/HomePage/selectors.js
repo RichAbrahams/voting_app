@@ -8,9 +8,9 @@ const selectLoading = () => createSelector(
   (homeState) => homeState.get('loading')
 );
 
-const selectDbPosition = () => createSelector(
+const selectCurrentPage = () => createSelector(
   selectHome(),
-  (homeState) => homeState.get('dbPosition')
+  (homeState) => homeState.get('currentPage')
 );
 
 const selectLoadingError = () => createSelector(
@@ -23,9 +23,21 @@ const selectPolls = () => createSelector(
   (homeState) => homeState.get('polls')
 );
 
+const selectPollCount = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('pollCount')
+);
+
+const selectVoted = () => createSelector(
+  selectHome(),
+  (homeState) => homeState.get('voted')
+);
+
 export {
   selectLoading,
-  selectDbPosition,
+  selectCurrentPage,
   selectLoadingError,
   selectPolls,
+  selectPollCount,
+  selectVoted,
 };

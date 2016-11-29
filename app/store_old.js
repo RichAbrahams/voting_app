@@ -8,7 +8,6 @@ import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 const sagaMiddleware = createSagaMiddleware();
-import tester from './middleware/tester';
 
 export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
@@ -17,7 +16,6 @@ export default function configureStore(initialState = {}, history) {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
-    tester,
   ];
 
   const enhancers = [

@@ -9,12 +9,15 @@ import HomePagePollListItem from '../HomePagePollListItem';
 import UL from './UL';
 
 function HomePagePolls(props) {
-  const { polls } = props;
+  const { polls, voted, viewPoll, viewResult } = props;
   return (
     <UL>
       {polls.map((item, index) => <HomePagePollListItem
         key={index}
         poll={item}
+        voted={voted}
+        viewPoll={viewPoll}
+        viewResult={viewResult}
       />)}
     </UL>
   );
@@ -22,6 +25,9 @@ function HomePagePolls(props) {
 
 HomePagePolls.propTypes = {
   polls: React.PropTypes.object,
+  voted: React.PropTypes.object,
+  viewPoll: React.PropTypes.func,
+  viewResult: React.PropTypes.func,
 };
 
 export default HomePagePolls;

@@ -16,9 +16,11 @@ import {
 
 const initialState = fromJS({
   loading: true,
-  dbPosition: 0,
+  currentPage: 0,
   polls: false,
   loadingError: false,
+  pollCount: false,
+  voted: JSON.parse(localStorage.getItem('voted')) || [],
 });
 
 function homePageReducer(state = initialState, action) {
@@ -30,17 +32,25 @@ function homePageReducer(state = initialState, action) {
       return state
         .set('loading', true);
     case NEXT_POLLS_LOADED: {
-      const nextDbPosition = state.get('dbPosition') + 18;
+      const newPage = state.get('currentPage') + 1;
       return state
         .set('loading', false)
         .set('loadingError', false)
-        .set('dbPosition', fromJS(nextDbPosition))
+        .set('currentPage', fromJS(newPage))
+        .set('pollCount', action.data.count)
         .set('polls', fromJS(action.data.polls));
     }
     case NEXT_POLLS_LOADING_ERROR:
       return state;
-    case PREVIOUS_POLLS_LOADED:
-      return state;
+    case PREVIOUS_POLLS_LOADED: {
+      const newPage = state.get('currentPage') - 1;
+      return state
+        .set('loading', false)
+        .set('loadingError', false)
+        .set('currentPage', fromJS(newPage))
+        .set('pollCount', action.data.count)
+        .set('polls', fromJS(action.data.polls));
+    }
     case PREVIOUS_POLLS_LOADING_ERROR:
       return state;
     default:
