@@ -5,10 +5,39 @@
 import { takeLatest } from 'redux-saga';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { INITIAL_LOAD_POLLS, LOAD_NEXT_POLLS, LOAD_PREVIOUS_POLLS } from './constants';
-import { nextPollsLoaded, nextPollsLoadingError, previousPollsLoaded, previousPollsLoadingError } from './actions';
+import { LOAD_POLLS, LOAD_NEXT_POLLS, LOAD_PREVIOUS_POLLS } from './constants';
+import { pollsLoaded, pollsLoadingError, nextPollsLoaded, nextPollsLoadingError, previousPollsLoaded, previousPollsLoadingError } from './actions';
 import { request } from 'utils/request';
 import { selectCurrentPage } from 'containers/HomePage/selectors';
+
+// GET POLLS
+
+export function* getPollsRequest() {
+  const requestURL = '/api/getPolls';
+  const limit = 25;
+  const skip = 0;
+  const payload = JSON.stringify({ skip, limit });
+  try {
+    const makeReq = yield call(request, requestURL, { method: 'post', body: payload });
+    if (makeReq.success === true) {
+      yield put(pollsLoaded(makeReq));
+    } else {
+      yield put(pollsLoadingError());
+    }
+  } catch (err) {
+    yield put(pollsLoadingError());
+  }
+}
+
+export function* getPollsWatcher() {
+  yield fork(takeLatest, LOAD_POLLS, getPollsRequest);
+}
+
+export function* getPolls() {
+  const watcher = yield fork(getPollsWatcher);
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
 
 // NEXT POLLS
 
@@ -31,7 +60,7 @@ export function* getNextPollsRequest() {
 }
 
 export function* getNextPollsWatcher() {
-  yield fork(takeLatest, [INITIAL_LOAD_POLLS, LOAD_NEXT_POLLS], getNextPollsRequest);
+  yield fork(takeLatest, LOAD_NEXT_POLLS, getNextPollsRequest);
 }
 
 export function* getNextPolls() {
@@ -75,4 +104,5 @@ export function* getPreviousPolls() {
 export default [
   getNextPolls,
   getPreviousPolls,
+  getPolls,
 ];

@@ -6,9 +6,15 @@
 
 export const LOADING_FALSE = 'app/HomePage/LOADING_FALSE';
 export const LOADING_TRUE = 'app/HomePage/LOADING_TRUE';
+export const GET_LOCAL_STORAGE = 'app/HomePage/GET_LOCAL_STORAGE';
+export const SET_LOCAL_STORAGE = 'app/HomePage/SET_LOCAL_STORAGE';
+export const UPDATE_VOTED = 'app/HomePage/UPDATE_LOCAL_STORAGE';
+export const LOAD_POLLS = 'app/HomePage/LOAD_POLLS';
+export const POLLS_LOADED = 'app/HomePage/POLLS_LOADED';
+export const POLLS_LOADING_ERROR = 'app/HomePage/LOAD_POLLS_ERROR';
 export const LOAD_NEXT_POLLS = 'app/HomePage/LOAD_NEXT_POLLS';
-export const LOAD_PREVIOUS_POLLS = 'app/HomePage/LOAD_PREVIOUS_POLLS';
 export const NEXT_POLLS_LOADED = 'app/HomePage/NEXT_POLLS_LOADED';
 export const NEXT_POLLS_LOADING_ERROR = 'app/HomePage/NEXT_POLLS_LOADING_ERROR';
+export const LOAD_PREVIOUS_POLLS = 'app/HomePage/LOAD_PREVIOUS_POLLS';
 export const PREVIOUS_POLLS_LOADED = 'app/HomePage/PREVIOUS_POLLS_LOADED';
 export const PREVIOUS_POLLS_LOADING_ERROR = 'app/HomePage/PREVIOUS_POLLS_LOADING_ERROR';

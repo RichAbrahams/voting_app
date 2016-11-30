@@ -7,13 +7,22 @@
 import {
   LOADING_FALSE,
   LOADING_TRUE,
+  LOAD_POLLS,
+  POLLS_LOADED,
+  POLLS_LOADING_ERROR,
   LOAD_NEXT_POLLS,
   LOAD_PREVIOUS_POLLS,
   NEXT_POLLS_LOADED,
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
+  GET_LOCAL_STORAGE,
+  SET_LOCAL_STORAGE,
+  UPDATE_VOTED,
 } from './constants';
+
+
+// Loading Flags
 
 export function loadingFalse() {
   return {
@@ -27,15 +36,33 @@ export function loadingTrue() {
   };
 }
 
-export function loadNextPolls() {
+// initial load polls
+
+export function loadPolls() {
   return {
-    type: LOAD_NEXT_POLLS,
+    type: LOAD_POLLS,
   };
 }
 
-export function loadPreviousPolls() {
+export function pollsLoaded(data) {
   return {
-    type: LOAD_PREVIOUS_POLLS,
+    type: POLLS_LOADED,
+    data,
+  };
+}
+
+export function pollsLoadingError() {
+  return {
+    type: POLLS_LOADING_ERROR,
+  };
+}
+
+
+// Load next polls
+
+export function loadNextPolls() {
+  return {
+    type: LOAD_NEXT_POLLS,
   };
 }
 
@@ -52,6 +79,14 @@ export function nextPollsLoadingError() {
   };
 }
 
+// Load previous polls
+
+export function loadPreviousPolls() {
+  return {
+    type: LOAD_PREVIOUS_POLLS,
+  };
+}
+
 export function previousPollsLoaded(data) {
   return {
     type: PREVIOUS_POLLS_LOADED,
@@ -62,5 +97,28 @@ export function previousPollsLoaded(data) {
 export function previousPollsLoadingError() {
   return {
     type: PREVIOUS_POLLS_LOADING_ERROR,
+  };
+}
+
+// localStorage middleware actions
+
+export function loadVoted() {
+  return {
+    type: GET_LOCAL_STORAGE,
+  };
+}
+
+export function saveVoted() {
+  return {
+    type: SET_LOCAL_STORAGE,
+  };
+}
+
+// redux voted action
+
+export function updateVoted(data) {
+  return {
+    type: UPDATE_VOTED,
+    data,
   };
 }

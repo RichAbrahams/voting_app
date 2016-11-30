@@ -11,13 +11,13 @@ import { selectLoading, selectLoadingError, selectPolls, selectPollCount, select
 import { createStructuredSelector } from 'reselect';
 import LoadingIndicator from 'components/LoadingIndicator';
 import SectionWrapper from 'components/SectionWrapper';
-import { loadNextPolls, loadPreviousPolls } from './actions';
+import { loadPolls, loadNextPolls, loadPreviousPolls } from './actions';
 import HomePageContent from 'components/HomePageContent';
 
 export class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
-    this.props.loadNextPolls();
+    this.props.loadPolls();
   }
 
   render() {
@@ -44,6 +44,7 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
 HomePage.propTypes = {
   loading: React.PropTypes.bool,
   loadingError: React.PropTypes.bool,
+  loadPolls: React.PropTypes.func,
   loadNextPolls: React.PropTypes.func,
   loadPreviousPolls: React.PropTypes.func,
   polls: React.PropTypes.oneOfType([
@@ -71,6 +72,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
+    loadPolls: () => dispatch(loadPolls()),
     loadNextPolls: () => dispatch(loadNextPolls()),
     loadPreviousPolls: () => dispatch(loadPreviousPolls()),
     viewPoll: (id) => dispatch(push(`/viewpoll/${id}`)),

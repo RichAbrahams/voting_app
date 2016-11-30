@@ -20,8 +20,7 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
-// Import i18n messages
-
+import { loadVoted } from './containers/HomePage/actions';
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
 import './global-styles';
@@ -49,7 +48,6 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-
 const render = () => {
   ReactDOM.render(
     <Provider store={store}>
@@ -73,5 +71,7 @@ render();
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
+store.dispatch(loadVoted());
+
 import { install } from 'offline-plugin/runtime';
 install();
