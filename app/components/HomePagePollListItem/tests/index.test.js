@@ -16,6 +16,9 @@ describe('<HomePagePollListItem />', () => {
         question: 'test',
         createdBy: 'test',
       }),
+      voted: fromJS([]),
+      viewPoll: () => {},
+      viewResult: () => {},
     });
     renderedComponent = shallow(
       <HomePagePollListItem {...props} />

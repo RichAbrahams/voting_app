@@ -8,6 +8,9 @@ import {
   nextPollsLoadingError,
   previousPollsLoaded,
   previousPollsLoadingError,
+  loadPolls,
+  pollsLoaded,
+  pollsLoadingError,
 } from '../actions';
 import {
   LOADING_FALSE,
@@ -18,6 +21,10 @@ import {
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
+  LOAD_POLLS,
+  POLLS_LOADED,
+  POLLS_LOADING_ERROR,
+
 } from '../constants';
 
 describe('HomePage actions', () => {
@@ -85,6 +92,31 @@ describe('HomePage actions', () => {
         type: PREVIOUS_POLLS_LOADING_ERROR,
       };
       expect(previousPollsLoadingError()).toEqual(expected);
+    });
+  });
+  describe('loadPolls', () => {
+    it('has a type of LOAD_POLLS', () => {
+      const expected = {
+        type: LOAD_POLLS,
+      };
+      expect(loadPolls()).toEqual(expected);
+    });
+  });
+  describe('pollsLoaded', () => {
+    it('has a type of POLLS_LOADED', () => {
+      const expected = {
+        type: POLLS_LOADED,
+        data: { data: 'test' },
+      };
+      expect(pollsLoaded({ data: 'test' })).toEqual(expected);
+    });
+  });
+  describe('pollsLoadingError', () => {
+    it('has a type of POLLS_LOADING_ERROR', () => {
+      const expected = {
+        type: POLLS_LOADING_ERROR,
+      };
+      expect(pollsLoadingError()).toEqual(expected);
     });
   });
 });
