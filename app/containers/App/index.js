@@ -14,6 +14,7 @@
 import React from 'react';
 import Header from '../Header/index';
 import styled from 'styled-components';
+import 'font-awesome/css/font-awesome.min.css';
 
 export default class App extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 

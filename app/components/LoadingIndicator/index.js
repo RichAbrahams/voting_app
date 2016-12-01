@@ -5,7 +5,6 @@
 */
 
 import React from 'react';
-import '../../../node_modules/font-awesome/css/font-awesome.min.css';
 import Wrapper from './wrapper';
 import Spinner from './spinner';
 
