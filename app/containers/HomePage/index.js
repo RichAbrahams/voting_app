@@ -23,12 +23,12 @@ export class HomePage extends React.PureComponent { // eslint-disable-line react
   render() {
     return (
       <SectionWrapper>
-        HomePage
-        {this.props.loading && <LoadingIndicator loading={this.props.loading} />}
+        {this.props.loading && <LoadingIndicator />}
         {!this.props.loading && <HomePageContent
           loadingError={this.props.loadingError}
           polls={this.props.polls}
           pollCount={this.props.pollCount}
+          loadPolls={this.props.loadPolls}
           loadNextPolls={this.props.loadNextPolls}
           loadPreviousPolls={this.props.loadPreviousPolls}
           currentPage={this.props.currentPage}

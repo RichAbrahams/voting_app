@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 
 export default styled.div`
-  background: rgb(237, 234, 234);
+  background: #90bc7f;
   color: white;
   width: 100%;
   padding: 0.5em;
   margin: 0;
-  color: #222;
+  color: white;;
 `;

@@ -6,17 +6,21 @@
 
 import React from 'react';
 import PageTitle from '../PageTitle';
-import Wrapper from '../SectionWrapper';
-import HomePageError from '../HomePageError';
+import Wrapper from '../InnerWrapper';
+import LoadError from '../LoadError';
 import HomePagePolls from '../HomePagePolls';
 import HomePagePager from '../HomePagePager';
 
 function HomePageContent(props) {
-  const { loadingError, polls, pollCount, loadNextPolls, loadPreviousPolls, currentPage, voted, viewPoll, viewResult } = props;
+  const { loadingError, polls, pollCount, loadPolls, loadNextPolls, loadPreviousPolls, currentPage, voted, viewPoll, viewResult } = props;
+  const text = 'failed to load data';
   return (
     <Wrapper>
       <PageTitle text="Latest Polls" />
-      {loadingError && <HomePageError />}
+      {loadingError && <LoadError
+        reload={loadPolls}
+        text={text}
+      />}
       {polls && <HomePagePolls
         polls={polls}
         voted={voted}
@@ -35,6 +39,7 @@ function HomePageContent(props) {
 
 HomePageContent.propTypes = {
   loadingError: React.PropTypes.bool,
+  loadPolls: React.PropTypes.func,
   loadNextPolls: React.PropTypes.func,
   loadPreviousPolls: React.PropTypes.func,
   polls: React.PropTypes.oneOfType([

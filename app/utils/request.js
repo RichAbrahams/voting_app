@@ -1,33 +1,13 @@
 /* eslint arrow-body-style: 0 */
 
 
-import 'whatwg-fetch';
-
-function delayPromise(delay) {
-  return (data) => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(data);
-      }, delay);
-    });
-  };
-}
-
-function parseJSON(response) {
-  return response.json();
-}
-
-export function requestWithDelay(url, options) {
-  return fetch(url, options)
-  .then(parseJSON)
-  .then(delayPromise(1000))
-  .then((data) => data)
-  .catch(() => { return { success: false, error: 'could not connect to server' }; });
-}
-
 export function request(url, options) {
-  return fetch(url, options)
-    .then(parseJSON)
-    .then((data) => data)
-    .catch(() => { return { success: false, error: 'could not connect to server' }; });
+  const makeRequest = fetch(url, options);
+  const timeOut = new Promise((resolve, reject) => {
+    setTimeout(reject, 5000, { success: false, error: 'request timed out' });
+  });
+  return Promise
+    .race([makeRequest, timeOut])
+    .then((data) => data.json())
+    .catch((err) => err);
 }

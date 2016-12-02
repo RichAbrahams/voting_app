@@ -1,6 +1,3 @@
-/**
- * Gets the repositories of the user from Github
- */
 
 import { takeLatest } from 'redux-saga';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
@@ -8,7 +5,7 @@ import { LOCATION_CHANGE } from 'react-router-redux';
 import { LOAD_POLLS, LOAD_NEXT_POLLS, LOAD_PREVIOUS_POLLS } from './constants';
 import { pollsLoaded, pollsLoadingError, nextPollsLoaded, nextPollsLoadingError, previousPollsLoaded, previousPollsLoadingError } from './actions';
 import { request } from 'utils/request';
-import { selectCurrentPage } from 'containers/HomePage/selectors';
+import { selectCurrentPage } from './selectors';
 
 // GET POLLS
 
