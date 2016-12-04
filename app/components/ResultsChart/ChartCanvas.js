@@ -7,6 +7,9 @@ import { Bar } from 'react-chartjs-2';
 function ChartCanvas(props) {
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.tooltips.enabled = true;
+  Chart.defaults.global.tooltips.backgroundColor = '#222';
+  Chart.defaults.global.tooltips.displayColors = false;
+
   const { options } = props;
   const labels = (options.map((item) => item.get('opt'))).toJS();
   const data = (options.map((item) => item.get('votes'))).toJS();
