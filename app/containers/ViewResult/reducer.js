@@ -12,7 +12,14 @@ import {
 
 const initialState = fromJS({
   loadPollResultError: false,
-  poll: false,
+  finishedLoading: false,
+  question: '',
+  createdBy: '',
+  options: [
+    { opt: '',
+      votes: 0,
+    },
+  ],
 });
 
 function viewResultReducer(state = initialState, action) {
@@ -20,11 +27,17 @@ function viewResultReducer(state = initialState, action) {
     case LOAD_POLL_RESULT_SUCCESS:
       return state
         .set('loadPollResultError', false)
-        .set('poll', fromJS(action.data.poll));
+        .set('finishedLoading', true)
+        .set('question', action.data.poll.question)
+        .set('createdBy', action.data.poll.createdBy)
+        .set('options', fromJS(action.data.poll.options));
     case LOAD_POLL_RESULT_ERROR:
       return state
-        .set('poll', false)
-        .set('loadPollResultError', true);
+        .set('finishedLoading', true)
+        .set('loadPollResultError', true)
+        .set('question', '')
+        .set('createdBy', '')
+        .set('options', fromJS([]));
     default:
       return state;
   }

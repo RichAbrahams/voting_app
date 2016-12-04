@@ -8,6 +8,7 @@ import { fromJS } from 'immutable';
 import {
   LOADING_FALSE,
   LOADING_TRUE,
+  LOAD_POLLS,
   POLLS_LOADED,
   POLLS_LOADING_ERROR,
   NEXT_POLLS_LOADED,
@@ -32,6 +33,9 @@ function homePageReducer(state = initialState, action) {
       return state
         .set('loading', false);
     case LOADING_TRUE:
+      return state
+        .set('loading', true);
+    case LOAD_POLLS:
       return state
         .set('loading', true);
     case POLLS_LOADED:

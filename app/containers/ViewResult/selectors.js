@@ -7,30 +7,41 @@ const selectLoadPollResultError = () => createSelector(
   (substate) => substate.get('loadPollResultError')
 );
 
+const selectFinishedLoading = () => createSelector(
+  selectViewResultDomain(),
+  (substate) => substate.get('finishedLoading')
+);
+
 const selectCreatedBy = () => createSelector(
   selectViewResultDomain(),
-  (substate) => substate.getIn(['poll', 'createdBy'])
+  (substate) => substate.get('createdBy')
 );
 
 const selectQuestion = () => createSelector(
   selectViewResultDomain(),
-  (substate) => substate.getIn(['poll', 'question'])
+  (substate) => substate.get('question')
 );
 
 const selectOptions = () => createSelector(
   selectViewResultDomain(),
-  (substate) => substate.getIn(['poll', 'options'])
+  (substate) => substate.get('options')
 );
 
-const selectUrl = () => createSelector(
+const selectTotalVotes = () => createSelector(
   selectViewResultDomain(),
-  (substate) => substate.getIn(['poll', 'url'])
+  (substate) => substate.get('options')
+                        .map((item) => item.get('votes'))
+                        .reduce((cont, item) => {
+                          const val = cont + item;
+                          return val;
+                        }, 0)
 );
 
 export {
   selectLoadPollResultError,
+  selectFinishedLoading,
   selectCreatedBy,
   selectQuestion,
   selectOptions,
-  selectUrl,
+  selectTotalVotes,
 };
