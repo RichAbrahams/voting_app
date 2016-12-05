@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="200"
+   height="92.845993"
+   viewBox="0 0 200 92.845996"
+   id="svg4200"
+   version="1.1"
+   inkscape:version="0.91 r"
+   sodipodi:docname="opinu4.svg">
+  <defs
+     id="defs4202" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4142136"
+     inkscape:cx="96.451306"
+     inkscape:cy="-4.4588459"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     units="px"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="993"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata4205">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-13.817,-755.43151)">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:67.51802826px;line-height:125%;font-family:'Bitstream Charter';-inkscape-font-specification:'Bitstream Charter';letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="10.913725"
+       y="801.88391"
+       id="text4885"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan4887"
+         x="10.913725"
+         y="801.88391">OPINU</tspan></text>
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4899"
+       width="33.660221"
+       height="28.277723"
+       x="16.579887"
+       y="811.54077" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4899-2"
+       width="33.660221"
+       height="36.69376"
+       x="56.911583"
+       y="811.58374" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4899-2-9"
+       width="33.660221"
+       height="24.793097"
+       x="97.610947"
+       y="811.71204"
+       inkscape:transform-center-x="-4.2075673"
+       inkscape:transform-center-y="5.5045141" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4899-2-1"
+       width="33.660221"
+       height="18.79705"
+       x="138.49187"
+       y="811.51294" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4899-2-1-2"
+       width="33.660221"
+       height="34.160007"
+       x="178.32277"
+       y="811.51294"
+       inkscape:transform-center-x="18.232667"
+       inkscape:transform-center-y="16.851874" />
+    <rect
+       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       id="rect4952"
+       width="1.0020813"
+       height="0.40083253"
+       x="195.76274"
+       y="819.11261" />
+  </g>
+</svg>

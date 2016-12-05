@@ -8,7 +8,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SectionWrapper from 'components/SectionWrapper';
 import { createStructuredSelector } from 'reselect';
-import { loadPollResult } from './actions';
+import { loadPollResult, resetChart } from './actions';
 import { selectLoadPollResultError, selectCreatedBy, selectQuestion, selectOptions, selectFinishedLoading, selectTotalVotes } from './selectors';
 import ViewResultContent from 'components/ViewResultContent';
 
@@ -16,6 +16,10 @@ export class ViewResult extends React.PureComponent { // eslint-disable-line rea
   componentDidMount() {
     const url = this.props.params.slug;
     this.props.loadPollResult(url);
+  }
+
+  componentWillUnmount() {
+    this.props.resetChart();
   }
 
   render() {
@@ -45,6 +49,7 @@ ViewResult.propTypes = {
   question: React.PropTypes.string,
   options: React.PropTypes.object,
   totalVotes: React.PropTypes.number,
+  resetChart: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -59,6 +64,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     loadPollResult: (url) => dispatch(loadPollResult(url)),
+    resetChart: () => dispatch(resetChart()),
   };
 }
 

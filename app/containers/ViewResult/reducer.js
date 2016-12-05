@@ -8,6 +8,7 @@ import { fromJS } from 'immutable';
 import {
   LOAD_POLL_RESULT_SUCCESS,
   LOAD_POLL_RESULT_ERROR,
+  RESET_CHART,
 } from './constants';
 
 const initialState = fromJS({
@@ -35,6 +36,13 @@ function viewResultReducer(state = initialState, action) {
       return state
         .set('finishedLoading', true)
         .set('loadPollResultError', true)
+        .set('question', '')
+        .set('createdBy', '')
+        .set('options', fromJS([]));
+    case RESET_CHART:
+      return state
+        .set('finishedLoading', false)
+        .set('loadPollResultError', false)
         .set('question', '')
         .set('createdBy', '')
         .set('options', fromJS([]));

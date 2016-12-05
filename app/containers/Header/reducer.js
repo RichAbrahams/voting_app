@@ -10,7 +10,10 @@ import {
   DEFAULT_ACTION,
 } from './constants';
 
-const initialState = fromJS({});
+const initialState = fromJS({
+  username: 'potato',
+  token: null,
+});
 
 function headerReducer(state = initialState, action) {
   switch (action.type) {
