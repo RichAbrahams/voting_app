@@ -2,6 +2,7 @@ export const loadVotes = () => {
   try {
     const votes = localStorage.getItem('votes');
     if (votes === null) {
+      localStorage.setItem('votes', []);
       return [];
     }
     return JSON.parse(votes);
@@ -18,3 +19,5 @@ export const saveVotes = (state) => {
     return;
   }
 };
+
+// add load / save token

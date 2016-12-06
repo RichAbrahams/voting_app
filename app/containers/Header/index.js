@@ -15,11 +15,12 @@ import { push } from 'react-router-redux';
 import { createStructuredSelector } from 'reselect';
 
 export class Header extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
   render() {
     return (
       <Wrapper>
         <div onClick={() => this.props.changePage('/')}>
-          <img src={Logo} alt="react-boilerplate - Logo" />
+          <img src={Logo} alt="Opinu - Logo" />
         </div>
         <Navigation
           username={this.props.username}

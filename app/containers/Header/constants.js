@@ -4,4 +4,4 @@
  *
  */
 
-export const DEFAULT_ACTION = 'app/Header/DEFAULT_ACTION';
+export const GET_TOKEN_FROM_LOCAL_STORAGE = 'app/Header/GET_TOKEN_FROM_LOCAL_STORAGE';

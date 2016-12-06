@@ -5,11 +5,12 @@
  */
 
 import {
-  DEFAULT_ACTION,
+  GET_TOKEN_FROM_LOCAL_STORAGE,
 } from './constants';
 
-export function defaultAction() {
+export function getTokenFromLocalStorage(token) {
   return {
-    type: DEFAULT_ACTION,
+    type: GET_TOKEN_FROM_LOCAL_STORAGE,
+    token,
   };
 }

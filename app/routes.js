@@ -59,6 +59,26 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/mypolls',
+      name: 'myPolls',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/MyPolls/reducer'),
+          System.import('containers/MyPolls/sagas'),
+          System.import('containers/MyPolls'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('myPolls', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

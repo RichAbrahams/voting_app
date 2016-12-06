@@ -12,6 +12,6 @@ export default styled.li`
   transition: all 300ms;
   &:hover {
   cursor: pointer;
-  background: #90bc7f;
+  background: #444;
   }
 `;

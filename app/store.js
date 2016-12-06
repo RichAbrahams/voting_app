@@ -8,8 +8,7 @@ import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 const sagaMiddleware = createSagaMiddleware();
-import getLocalStorage from './middleware/getLocalStorage';
-import setLocalStorage from './middleware/setLocalStorage';
+import { getVoted, getToken, setVoted, setToken } from './middleware/localStorageManager';
 
 export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
@@ -18,8 +17,10 @@ export default function configureStore(initialState = {}, history) {
   const middlewares = [
     sagaMiddleware,
     routerMiddleware(history),
-    getLocalStorage,
-    setLocalStorage,
+    getVoted,
+    getToken,
+    setVoted,
+    setToken,
   ];
 
   const enhancers = [

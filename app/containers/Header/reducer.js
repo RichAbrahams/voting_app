@@ -7,7 +7,7 @@
 import { fromJS } from 'immutable';
 
 import {
-  DEFAULT_ACTION,
+  GET_TOKEN_FROM_LOCAL_STORAGE,
 } from './constants';
 
 const initialState = fromJS({
@@ -17,8 +17,9 @@ const initialState = fromJS({
 
 function headerReducer(state = initialState, action) {
   switch (action.type) {
-    case DEFAULT_ACTION:
-      return state;
+    case GET_TOKEN_FROM_LOCAL_STORAGE:
+      return state
+        .set('token', action.token);
     default:
       return state;
   }

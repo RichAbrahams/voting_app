@@ -22,31 +22,31 @@ function Navigation(props) {
         iconName="sign-in"
         text="Sign In"
         changePage={changePage}
-        linkTo="/sign-in"
+        linkTo="/signin"
       />}
       {!username && <NavLink
         iconName="user-plus"
         text="Sign Up"
         changePage={changePage}
-        linkTo="/sign-up"
+        linkTo="/signup"
       />}
       {username && <NavLink
         iconName="user"
         text="My Polls"
         changePage={changePage}
-        linkTo="/my-polls"
+        linkTo="/mypolls"
       />}
       {username && <NavLink
         iconName="plus-square"
         text="New Poll"
         changePage={changePage}
-        linkTo="/new-poll"
+        linkTo="/newpoll"
       />}
       {username && <NavLink
-        iconName="sign-out"
+        iconName="signout"
         text="Log Out"
         changePage={changePage}
-        linkTo="/sign-out"
+        linkTo="/signout"
       />}
     </Wrapper>
   );

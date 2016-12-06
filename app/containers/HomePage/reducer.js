@@ -15,7 +15,7 @@ import {
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
-  UPDATE_VOTED,
+  GET_VOTED_FROM_LOCAL_STORAGE,
 } from './constants';
 
 const initialState = fromJS({
@@ -73,10 +73,9 @@ function homePageReducer(state = initialState, action) {
     case PREVIOUS_POLLS_LOADING_ERROR:
       return state
         .set('loadingError', true);
-    case UPDATE_VOTED: {
-      const updatedVoted = state.get('voted').concat(fromJS(action.data));
+    case GET_VOTED_FROM_LOCAL_STORAGE: {
       return state
-        .set('voted', updatedVoted);
+        .set('voted', fromJS(action.voted));
     }
     default:
       return state;

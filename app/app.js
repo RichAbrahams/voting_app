@@ -20,7 +20,9 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
-import { loadVoted } from './containers/HomePage/actions';
+import { getVotedFromLocalStorage } from './containers/HomePage/actions';
+import { getTokenFromLocalStorage } from './containers/Header/actions';
+
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
 import './global-styles';
@@ -80,7 +82,11 @@ render();
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
-store.dispatch(loadVoted());
+
+// Custom Middleware
+
+store.dispatch(getVotedFromLocalStorage());
+store.dispatch(getTokenFromLocalStorage());
 
 import { install } from 'offline-plugin/runtime';
 install();

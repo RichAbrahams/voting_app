@@ -1,18 +1,19 @@
 import expect from 'expect';
 import {
-  defaultAction,
+  getTokenFromLocalStorage,
 } from '../actions';
 import {
-  DEFAULT_ACTION,
+  GET_TOKEN_FROM_LOCAL_STORAGE,
 } from '../constants';
 
 describe('Header actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('getTokenFromLocalStorage', () => {
+    it('has a type of GET_TOKEN_FROM_LOCAL_STORAGE', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: GET_TOKEN_FROM_LOCAL_STORAGE,
+        token: 'test',
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(getTokenFromLocalStorage('test')).toEqual(expected);
     });
   });
 });

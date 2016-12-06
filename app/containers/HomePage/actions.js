@@ -16,9 +16,7 @@ import {
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
-  GET_LOCAL_STORAGE,
-  SET_LOCAL_STORAGE,
-  UPDATE_VOTED,
+  GET_VOTED_FROM_LOCAL_STORAGE,
 } from './constants';
 
 
@@ -102,23 +100,9 @@ export function previousPollsLoadingError() {
 
 // localStorage middleware actions
 
-export function loadVoted() {
+export function getVotedFromLocalStorage(voted) {
   return {
-    type: GET_LOCAL_STORAGE,
-  };
-}
-
-export function saveVoted() {
-  return {
-    type: SET_LOCAL_STORAGE,
-  };
-}
-
-// redux voted action
-
-export function updateVoted(data) {
-  return {
-    type: UPDATE_VOTED,
-    data,
+    type: GET_VOTED_FROM_LOCAL_STORAGE,
+    voted,
   };
 }
