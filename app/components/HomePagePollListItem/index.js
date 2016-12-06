@@ -5,7 +5,7 @@
 */
 
 import React from 'react';
-import LI from './LI';
+import LI from './HomePageLI';
 import QuestionWrapper from './QuestionWrapper';
 import DetailsWrapper from './DetailsWrapper';
 import Icon from './Icon';

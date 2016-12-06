@@ -9,7 +9,7 @@ import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 const sagaMiddleware = createSagaMiddleware();
 import { getVoted, getToken, setVoted, setToken } from './middleware/localStorageManager';
-
+import { nextScrollWindow, previousScrollWindow } from './middleware/resetScrollPosition';
 export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
@@ -21,6 +21,8 @@ export default function configureStore(initialState = {}, history) {
     getToken,
     setVoted,
     setToken,
+    nextScrollWindow,
+    previousScrollWindow,
   ];
 
   const enhancers = [

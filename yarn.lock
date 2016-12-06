@@ -1606,6 +1606,26 @@ change-case@3.0.x:
     upper-case "^1.1.1"
     upper-case-first "^1.1.0"
 
+chart.js@^2.3.0, chart.js@^2.4.0:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-2.4.0.tgz#44198073f0f43e5e16662e108420d92652a3c9a3"
+  dependencies:
+    chartjs-color "^2.0.0"
+    moment "^2.10.6"
+
+chartjs-color-string@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.4.0.tgz#57748d4530ae28d8db0a5492182ba06dfdf2f468"
+  dependencies:
+    color-name "^1.0.0"
+
+chartjs-color@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/chartjs-color/-/chartjs-color-2.0.0.tgz#7f60c7256589b24914814ece757659117381e35b"
+  dependencies:
+    chartjs-color-string "^0.4.0"
+    color-convert "^0.5.3"
+
 cheerio@^0.22.0, cheerio@0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-0.22.0.tgz#a9baa860a3f9b595a6b81b1a86873121ed3a269e"
@@ -1741,6 +1761,10 @@ code-point-at@^1.0.0:
 collapse-white-space@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/collapse-white-space/-/collapse-white-space-1.0.2.tgz#9c463fb9c6d190d2dcae21a356a01bcae9eeef6d"
+
+color-convert@^0.5.3:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-0.5.3.tgz#bdb6c69ce660fadffe0b0007cc447e1b9f7282bd"
 
 color-convert@^1.3.0:
   version "1.5.0"
@@ -2322,7 +2346,7 @@ deep-equal@^1.0.0, deep-equal@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-1.0.1.tgz#f5d260292b660e084eff4cdbc9f08ad3247448b5"
 
-deep-extend@^0.4.0, deep-extend@~0.4.0:
+deep-extend@~0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/deep-extend/-/deep-extend-0.4.1.tgz#efe4113d08085f4e6f9687759810f807469e2253"
 
@@ -2589,10 +2613,6 @@ ee-first@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
 
-ejs@^2.3.4:
-  version "2.5.2"
-  resolved "https://registry.yarnpkg.com/ejs/-/ejs-2.5.2.tgz#21444ba09386f0c65b6eafb96a3d51bcb3be80d1"
-
 elegant-spinner@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/elegant-spinner/-/elegant-spinner-1.0.1.tgz#db043521c95d7e303fd8f345bedc3349cfb0729e"
@@ -2766,10 +2786,6 @@ es6-map@^0.1.3:
     es6-set "~0.1.3"
     es6-symbol "~3.1.0"
     event-emitter "~0.3.4"
-
-es6-promise@^3.0.2:
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-3.3.1.tgz#a08cdde84ccdbf34d027a1451bc91d4bcd28a613"
 
 es6-promise@3.2.1:
   version "3.2.1"
@@ -5666,6 +5682,10 @@ mocha@3.1.2:
     mkdirp "0.5.1"
     supports-color "3.1.2"
 
+moment@^2.10.6:
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.1.tgz#fed9506063f36b10f066c8b59a144d7faebe1d82"
+
 moment@2.x.x:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.17.0.tgz#a4c292e02aac5ddefb29a6eed24f51938dd3b74f"
@@ -6008,16 +6028,6 @@ object.values@^1.0.3:
     es-abstract "^1.3.2"
     function-bind "^1.0.2"
     has "^1.0.1"
-
-offline-plugin@3.4.2:
-  version "3.4.2"
-  resolved "https://registry.yarnpkg.com/offline-plugin/-/offline-plugin-3.4.2.tgz#ddbb9eec3e8fd052ec51e03c56afdc33b0a331a2"
-  dependencies:
-    deep-extend "^0.4.0"
-    ejs "^2.3.4"
-    es6-promise "^3.0.2"
-    loader-utils "0.2.x"
-    minimatch "^3.0.2"
 
 on-finished@~2.3.0:
   version "2.3.0"
@@ -6818,6 +6828,12 @@ rc@^1.0.1, rc@^1.1.2, rc@^1.1.6, rc@~1.1.0:
 "react-addons-test-utils@^0.14.8 || ^15.0.1":
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react-addons-test-utils/-/react-addons-test-utils-15.3.2.tgz#c09a44f583425a4a9c1b38444d7a6c3e6f0f41f6"
+
+react-chartjs-2@^1.5.5:
+  version "1.5.5"
+  resolved "https://registry.yarnpkg.com/react-chartjs-2/-/react-chartjs-2-1.5.5.tgz#6dfd248a57bd1daebfc5a5b0890ad12a7431c70f"
+  dependencies:
+    chart.js "^2.3.0"
 
 react-deep-force-update@^1.0.0:
   version "1.0.1"

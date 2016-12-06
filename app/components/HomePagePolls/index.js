@@ -6,7 +6,7 @@
 
 import React from 'react';
 import HomePagePollListItem from '../HomePagePollListItem';
-import UL from './UL';
+import UL from './HomePageUL';
 
 function HomePagePolls(props) {
   const { polls, voted, viewPoll, viewResult } = props;

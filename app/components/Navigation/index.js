@@ -43,7 +43,7 @@ function Navigation(props) {
         linkTo="/newpoll"
       />}
       {username && <NavLink
-        iconName="signout"
+        iconName="sign-out"
         text="Log Out"
         changePage={changePage}
         linkTo="/signout"

@@ -87,6 +87,3 @@ render();
 
 store.dispatch(getVotedFromLocalStorage());
 store.dispatch(getTokenFromLocalStorage());
-
-import { install } from 'offline-plugin/runtime';
-install();

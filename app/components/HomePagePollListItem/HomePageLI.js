@@ -6,12 +6,12 @@ export default styled.li`
   flex-direction: column;
   margin-top: 1em;
   border: 1px solid rgb(237, 234, 234);
-  border-radius: 6px;
-  padding: 0.5em;
   text-align: center;
   transition: all 300ms;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,.1);
   &:hover {
   cursor: pointer;
-  background: #444;
+  background: #9cbbd3;
   }
 `;

@@ -26,7 +26,7 @@ function myPollsReducer(state = initialState, action) {
       return state
           .set('loading', false)
           .set('loadingError', false)
-          .set('polls', action.data);
+          .set('polls', fromJS(action.data));
     case LOAD_USER_POLLS_ERROR:
       return state
           .set('loading', false)

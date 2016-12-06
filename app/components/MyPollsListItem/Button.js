@@ -1,14 +1,13 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+export default styled.button`
+  margin: 0rem 1rem 0rem 1rem;
+  padding:0;
+  outline: none;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 1.5em;
-  outline: none;
   &:hover {
     cursor: pointer;
   }
 `;
-
-export default Button;

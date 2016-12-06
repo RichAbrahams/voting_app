@@ -10,6 +10,7 @@ import { selectMyPolls, selectLoadingError, selectLoading } from './selectors';
 import { loadUserPolls } from './actions';
 import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
+import MyPollsContent from 'components/MyPollsContent';
 
 export class MyPolls extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -20,7 +21,12 @@ export class MyPolls extends React.PureComponent { // eslint-disable-line react/
   render() {
     return (
       <SectionWrapper>
-      mypolls
+        {!this.props.loading && <MyPollsContent
+          myPolls={this.props.myPolls}
+          viewPoll={this.props.viewPoll}
+          deletePoll={this.props.deletePoll}
+          reload={this.props.loadUserPolls}
+        />}
       </SectionWrapper>
     );
   }
@@ -28,6 +34,10 @@ export class MyPolls extends React.PureComponent { // eslint-disable-line react/
 
 MyPolls.propTypes = {
   loadUserPolls: React.PropTypes.func,
+  loading: React.PropTypes.bool,
+  myPolls: React.PropTypes.object,
+  viewPoll: React.PropTypes.func,
+  deletePoll: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -39,6 +49,8 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     loadUserPolls: () => dispatch(loadUserPolls()),
+    viewPoll: () => {},
+    deletePoll: () => {},
   };
 }
 
