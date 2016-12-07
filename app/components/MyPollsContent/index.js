@@ -9,6 +9,7 @@ import PageTitle from '../PageTitle';
 import Wrapper from '../InnerWrapper';
 import LoadError from '../LoadError';
 import MyPollsList from '../MyPollsList';
+import NoPollsMsg from './NoPollsMsg';
 
 function MyPollsContent(props) {
   const { myPollsError, loadMyPolls, myPolls, viewPoll,
@@ -22,13 +23,16 @@ deletePoll, setShowConfirm, showConfirm } = props;
         reload={loadMyPolls}
         target="/mypolls"
       />}
-      {!myPollsError && <MyPollsList
+      {(!myPollsError && !myPolls.isEmpty()) && <MyPollsList
         myPolls={myPolls}
         viewPoll={viewPoll}
         deletePoll={deletePoll}
         setShowConfirm={setShowConfirm}
         showConfirm={showConfirm}
       />}
+      {(!myPollsError && myPolls.isEmpty()) &&
+      <NoPollsMsg>You haven&apos;t created any polls yet.</NoPollsMsg>
+      }
     </Wrapper>
   );
 }

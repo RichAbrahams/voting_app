@@ -46,9 +46,14 @@ function homePageReducer(state = initialState, action) {
         .set('pollCount', action.data.count)
         .set('polls', fromJS(action.data.polls));
     case POLLS_LOADING_ERROR:
-      return state
-        .set('loading', false)
-        .set('loadingError', true);
+      return fromJS({
+        loading: false,
+        currentPage: 0,
+        polls: false,
+        loadingError: true,
+        pollCount: false,
+        voted: [],
+      });
     case NEXT_POLLS_LOADED: {
       const newPage = state.get('currentPage') + 1;
       return state

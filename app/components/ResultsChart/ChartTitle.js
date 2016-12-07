@@ -12,7 +12,7 @@ function ResultsChart(props) {
   return (
     <TitleWrapper>
       <h2>{question}</h2>
-      <h3>Created by {createdBy}</h3>
+      <h4>Created by {createdBy}</h4>
     </TitleWrapper>
   );
 }
