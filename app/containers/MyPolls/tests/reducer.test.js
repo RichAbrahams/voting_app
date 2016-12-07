@@ -8,6 +8,8 @@ describe('myPollsReducer', () => {
       loading: true,
       loadingError: false,
       polls: [],
+      showConfirm: null,
+      selectedPoll: null,
     }));
   });
 });

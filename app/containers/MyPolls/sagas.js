@@ -1,11 +1,14 @@
-
+/* eslint no-underscore-dangle:0 */
 import { takeLatest } from 'redux-saga';
 import { take, call, put, select, fork, cancel } from 'redux-saga/effects';
 import { LOCATION_CHANGE } from 'react-router-redux';
-import { LOAD_USER_POLLS } from './constants';
-import { loadUserPollsSuccess, loadUserPollsError } from './actions';
+import { LOAD_USER_POLLS, DELETE_POLL } from './constants';
+import { loadUserPollsSuccess, loadUserPollsError, deletePollSuccess, deletePollError } from './actions';
 import { request } from 'utils/request';
 import { selectToken } from 'containers/Header/selectors';
+import { selectShowConfirm } from './selectors';
+
+// LOAD USER POLLS
 
 export function* loadUserPollsRequest() {
   const requestURL = '/api/getUserPolls';
@@ -32,6 +35,35 @@ export function* loadUserPolls() {
   yield cancel(watcher);
 }
 
+// DELETE USER POLL
+export function* deletePollRequest() {
+  const requestURL = '/api/deletePoll';
+  const token = yield select(selectToken());
+  const url = yield select(selectShowConfirm());
+  const payload = JSON.stringify({ url });
+  try {
+    const makeReq = yield call(request, requestURL, { method: 'delete', headers: { authorization: token }, body: payload });
+    if (makeReq.data._id) {
+      yield put(deletePollSuccess(makeReq.data));
+    } else {
+      yield put(deletePollError());
+    }
+  } catch (err) {
+    yield put(deletePollError());
+  }
+}
+
+export function* deletePollWatcher() {
+  yield fork(takeLatest, DELETE_POLL, deletePollRequest);
+}
+
+export function* deletePoll() {
+  const watcher = yield fork(deletePollWatcher);
+  yield take(LOCATION_CHANGE);
+  yield cancel(watcher);
+}
+
 export default [
   loadUserPolls,
+  deletePoll,
 ];

@@ -9,11 +9,14 @@ import QuestionWrapper from './QuestionWrapper';
 import DetailsWrapper from './DetailsWrapper';
 import ControlsWrapper from './ControlsWrapper';
 import ButtonWrapper from './ButtonWrapper';
+import ConfirmWrapper from './ConfirmWrapper';
 import Button from './Button';
+import ConfirmButton from './ConfirmButton';
+
 import Icon from './Icon';
 
 function MyPollsListItem(props) {
-  const { poll, viewPoll, deletePoll } = props;
+  const { poll, viewPoll, deletePoll, setShowConfirm, showConfirm } = props;
   const votes = poll.get('options')
                     .map((item) => item.get('votes'))
                     .reduce((cont, item) => {
@@ -21,7 +24,7 @@ function MyPollsListItem(props) {
                       return val;
                     }, 0);
   const url = poll.get('url');
-
+  const showConfirmButtons = url === showConfirm;
   return (
     <LI>
       <QuestionWrapper>{poll.get('question')}</QuestionWrapper>
@@ -31,18 +34,22 @@ function MyPollsListItem(props) {
           <Button onClick={() => viewPoll(url)}>
             <Icon
               name="eye"
-              size="3x"
+              size="2x"
             />
           View
           </Button>
-          <Button onClick={() => deletePoll(url)}>
+          <Button onClick={() => setShowConfirm(url)}>
             <Icon
               name="trash"
-              size="3x"
+              size="2x"
             />
           Delete
           </Button>
         </ButtonWrapper>
+        <ConfirmWrapper open={showConfirmButtons}>
+          <ConfirmButton onClick={deletePoll}>Confirm</ConfirmButton>
+          <ConfirmButton onClick={() => setShowConfirm(null)}>Cancel</ConfirmButton>
+        </ConfirmWrapper>
       </ControlsWrapper>
     </LI>
   );
@@ -52,6 +59,8 @@ MyPollsListItem.propTypes = {
   poll: React.PropTypes.object,
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
+  setShowConfirm: React.PropTypes.func,
+  showConfirm: React.PropTypes.string,
 };
 
 export default MyPollsListItem;

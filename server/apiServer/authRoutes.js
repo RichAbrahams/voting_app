@@ -20,8 +20,8 @@ const getUserPolls = require('./routes/getUserPolls');
 const deletePoll = require('./routes/deletePoll');
 const savePoll = require('./routes/savePoll');
 
-mongoose.connect('mongodb://pollingapp:pollingapp@ds153677.mlab.com:53677/pollingapp');
-
+// mongoose.connect('mongodb://pollingapp:pollingapp@ds153677.mlab.com:53677/pollingapp');
+mongoose.connect('mongodb://localhost:votingApp/votingApp');
 const requireAuth = (req, res, next) => {
   passport.authenticate('jwt', { session: false }, (err, user, info) => { // eslint-disable-line
     if (err) { return next(err); }

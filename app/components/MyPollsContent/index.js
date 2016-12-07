@@ -12,7 +12,7 @@ import MyPollsList from '../MyPollsList';
 
 function MyPollsContent(props) {
   const { myPollsError, loadMyPolls, myPolls, viewPoll,
-deletePoll } = props;
+deletePoll, setShowConfirm, showConfirm } = props;
   const text = 'failed to load data';
   return (
     <Wrapper>
@@ -26,6 +26,8 @@ deletePoll } = props;
         myPolls={myPolls}
         viewPoll={viewPoll}
         deletePoll={deletePoll}
+        setShowConfirm={setShowConfirm}
+        showConfirm={showConfirm}
       />}
     </Wrapper>
   );
@@ -37,6 +39,8 @@ MyPollsContent.propTypes = {
   myPolls: React.PropTypes.object,
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
+  setShowConfirm: React.PropTypes.func,
+  showConfirm: React.PropTypes.string,
 };
 
 export default MyPollsContent;

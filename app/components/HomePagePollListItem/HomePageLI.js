@@ -10,6 +10,7 @@ export default styled.li`
   transition: all 300ms;
   background: white;
   box-shadow: 0 1px 2px rgba(0,0,0,.1);
+  min-height: 110px;
   &:hover {
   cursor: pointer;
   background: #9cbbd3;

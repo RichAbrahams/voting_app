@@ -17,9 +17,15 @@ const selectLoading = () => createSelector(
   (substate) => substate.get('loading')
 );
 
+const selectShowConfirm = () => createSelector(
+  selectMyPollsDomain(),
+  (substate) => substate.get('showConfirm')
+);
+
 export default selectMyPolls;
 export {
   selectMyPolls,
   selectLoadingError,
   selectLoading,
+  selectShowConfirm,
 };

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export default styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   padding: 0;

@@ -6,8 +6,9 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import { selectMyPolls, selectLoadingError, selectLoading } from './selectors';
-import { loadUserPolls } from './actions';
+import { push } from 'react-router-redux';
+import { selectMyPolls, selectLoadingError, selectLoading, selectShowConfirm } from './selectors';
+import { loadUserPolls, setShowConfirm, deletePoll } from './actions';
 import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
 import MyPollsContent from 'components/MyPollsContent';
@@ -16,6 +17,7 @@ export class MyPolls extends React.PureComponent { // eslint-disable-line react/
 
   componentDidMount() {
     this.props.loadUserPolls();
+    this.props.setShowConfirm(null);
   }
 
   render() {
@@ -26,6 +28,8 @@ export class MyPolls extends React.PureComponent { // eslint-disable-line react/
           viewPoll={this.props.viewPoll}
           deletePoll={this.props.deletePoll}
           reload={this.props.loadUserPolls}
+          setShowConfirm={this.props.setShowConfirm}
+          showConfirm={this.props.showConfirm}
         />}
       </SectionWrapper>
     );
@@ -38,19 +42,23 @@ MyPolls.propTypes = {
   myPolls: React.PropTypes.object,
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
+  setShowConfirm: React.PropTypes.func,
+  showConfirm: React.PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
   myPolls: selectMyPolls(),
   loadingError: selectLoadingError(),
   loading: selectLoading(),
+  showConfirm: selectShowConfirm(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     loadUserPolls: () => dispatch(loadUserPolls()),
-    viewPoll: () => {},
-    deletePoll: () => {},
+    viewPoll: (id) => dispatch(push(`/viewresult/${id}`)),
+    deletePoll: () => dispatch(deletePoll()),
+    setShowConfirm: (url) => dispatch(setShowConfirm(url)),
   };
 }
 
