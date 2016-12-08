@@ -17,8 +17,8 @@ function ChartCanvas(props) {
     labels,
     datasets: [
       {
-        backgroundColor: '#55418d',
-        borderColor: '#55418d',
+        backgroundColor: '#335685',
+        borderColor: '#335685',
         borderWidth: 1,
         data,
       },

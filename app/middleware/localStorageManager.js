@@ -4,6 +4,7 @@
 /* eslint no-param-reassign: 0 */
 import { GET_VOTED_FROM_LOCAL_STORAGE } from '../containers/HomePage/constants';
 import { GET_TOKEN_FROM_LOCAL_STORAGE } from '../containers/Header/constants';
+import { SAVE_VOTE_SUCCESS } from '../containers/ViewPoll/constants';
 
 export function getVoted({ dispatch }) {
   return (next) => (action) => {
@@ -27,6 +28,14 @@ export function getToken({ dispatch }) {
 
 export function setVoted({ dispatch }) {
   return (next) => (action) => {
+    if (action.type !== SAVE_VOTE_SUCCESS) {
+      return next(action);
+    }
+    const url = action.data.url;
+    const Ls = JSON.parse(localStorage.getItem('voted')) || [];
+    Ls.push(url);
+    action.data.voted = Ls;
+    localStorage.setItem('voted', JSON.stringify(Ls));
     next(action);
   };
 }

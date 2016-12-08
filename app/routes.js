@@ -79,6 +79,26 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/viewpoll/:slug',
+      name: 'viewPoll',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/ViewPoll/reducer'),
+          System.import('containers/ViewPoll/sagas'),
+          System.import('containers/ViewPoll'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('viewPoll', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

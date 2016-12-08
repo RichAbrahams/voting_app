@@ -22,10 +22,16 @@ const selectShowConfirm = () => createSelector(
   (substate) => substate.get('showConfirm')
 );
 
+const selectDeletePollError = () => createSelector(
+  selectMyPollsDomain(),
+  (substate) => substate.get('deletePollError')
+);
+
 export default selectMyPolls;
 export {
   selectMyPolls,
   selectLoadingError,
   selectLoading,
   selectShowConfirm,
+  selectDeletePollError,
 };

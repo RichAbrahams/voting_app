@@ -10,6 +10,7 @@ describe('myPollsReducer', () => {
       polls: [],
       showConfirm: null,
       selectedPoll: null,
+      deletePollError: false,
     }));
   });
 });

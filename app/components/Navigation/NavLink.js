@@ -14,7 +14,7 @@ function NavLink(props) {
     <Link onClick={() => changePage(linkTo)}>
       <NavIcon
         name={iconName}
-        size="3x"
+        size="2x"
       />
       {text}
     </Link>

@@ -7,7 +7,7 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
-import Logo from './opinu4.svg';
+import Logo from './opinu8.svg';
 import Wrapper from './Wrapper';
 import Navigation from 'components/Navigation';
 import { selectUsername } from './selectors';

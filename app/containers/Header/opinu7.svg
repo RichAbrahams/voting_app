@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="200"
-   height="92.845993"
-   viewBox="0 0 200 92.845996"
+   width="225.72186"
+   height="100.03596"
+   viewBox="0 0 225.72186 100.03597"
    id="svg4200"
    version="1.1"
    inkscape:version="0.91 r"
-   sodipodi:docname="opinu4.svg">
+   sodipodi:docname="opinu7.svg">
   <defs
      id="defs4202" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="96.451306"
-     inkscape:cy="-4.4588459"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="98.016245"
+     inkscape:cy="37.332154"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -42,7 +42,12 @@
      inkscape:window-height="993"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1">
+    <sodipodi:guide
+       position="182.99999,41.750004"
+       orientation="0,1"
+       id="guide4159" />
+  </sodipodi:namedview>
   <metadata
      id="metadata4205">
     <rdf:RDF>
@@ -59,63 +64,56 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(-13.817,-755.43151)">
+     transform="translate(-73.213988,-659.53237)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:67.51802826px;line-height:125%;font-family:'Bitstream Charter';-inkscape-font-specification:'Bitstream Charter';letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="10.913725"
-       y="801.88391"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.20146942px;line-height:125%;font-family:'Bitstream Charter';-inkscape-font-specification:'Bitstream Charter';letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="69.937325"
+       y="711.95898"
        id="text4885"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4887"
-         x="10.913725"
-         y="801.88391">OPINU</tspan></text>
+         x="69.937325"
+         y="711.95898">OPINU</tspan></text>
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899"
-       width="33.660221"
-       height="28.277723"
-       x="16.579887"
-       y="811.54077" />
+       width="37.243965"
+       height="30.000006"
+       x="76.715973"
+       y="717.96832" />
     <rect
-       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
+       style="fill:#335685;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2"
-       width="33.660221"
-       height="36.69376"
-       x="56.911583"
-       y="811.58374" />
+       width="37.989044"
+       height="41.412701"
+       x="121.78968"
+       y="718.15564" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-9"
-       width="33.660221"
-       height="24.793097"
-       x="97.610947"
-       y="811.71204"
-       inkscape:transform-center-x="-4.2075673"
-       inkscape:transform-center-y="5.5045141" />
+       width="37.989044"
+       height="30.000006"
+       x="166.93388"
+       y="717.96832"
+       inkscape:transform-center-x="-4.7487414"
+       inkscape:transform-center-y="6.6601475" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-1"
-       width="33.660221"
-       height="18.79705"
-       x="138.49187"
-       y="811.51294" />
+       width="37.989044"
+       height="30.000006"
+       x="212.07797"
+       y="717.96832" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-1-2"
-       width="33.660221"
-       height="34.160007"
-       x="178.32277"
-       y="811.51294"
-       inkscape:transform-center-x="18.232667"
-       inkscape:transform-center-y="16.851874" />
-    <rect
-       style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
-       id="rect4952"
-       width="1.0020813"
-       height="0.40083253"
-       x="195.76274"
-       y="819.11261" />
+       width="37.989044"
+       height="30.000006"
+       x="257.22232"
+       y="717.96832"
+       inkscape:transform-center-x="20.577381"
+       inkscape:transform-center-y="14.799831" />
   </g>
 </svg>

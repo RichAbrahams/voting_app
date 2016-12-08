@@ -20,6 +20,7 @@ const initialState = fromJS({
   polls: [],
   showConfirm: null,
   selectedPoll: null,
+  deletePollError: false,
 });
 
 function myPollsReducer(state = initialState, action) {
@@ -31,11 +32,13 @@ function myPollsReducer(state = initialState, action) {
       return state
           .set('loading', false)
           .set('loadingError', false)
+          .set('deletePollError', false)
           .set('polls', fromJS(action.data));
     case LOAD_USER_POLLS_ERROR:
       return state
           .set('loading', false)
-          .set('loadingError', false)
+          .set('loadingError', true)
+          .set('deletePollError', false)
           .set('polls', fromJS([]));
     case SET_SHOW_CONFIRM:
       return state
@@ -45,10 +48,12 @@ function myPollsReducer(state = initialState, action) {
       newPolls = newPolls.filterNot((item) => item.get('url') === action.data.url);
       return state
           .set('polls', newPolls)
-          .set('showConfirm', null);
+          .set('showConfirm', null)
+          .set('deletePollError', false);
     }
     case DELETE_POLL_POLL_ERROR:
-      return state;
+      return state
+          .set('deletePollError', true);
     default:
       return state;
   }

@@ -7,7 +7,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { selectMyPolls, selectLoadingError, selectLoading, selectShowConfirm } from './selectors';
+import { selectMyPolls, selectLoadingError, selectLoading, selectShowConfirm, selectDeletePollError } from './selectors';
 import { loadUserPolls, setShowConfirm, deletePoll } from './actions';
 import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
@@ -30,6 +30,7 @@ export class MyPolls extends React.PureComponent { // eslint-disable-line react/
           reload={this.props.loadUserPolls}
           setShowConfirm={this.props.setShowConfirm}
           showConfirm={this.props.showConfirm}
+          deletePollError={this.props.deletePollError}
         />}
       </SectionWrapper>
     );
@@ -44,6 +45,7 @@ MyPolls.propTypes = {
   deletePoll: React.PropTypes.func,
   setShowConfirm: React.PropTypes.func,
   showConfirm: React.PropTypes.string,
+  deletePollError: React.PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -51,6 +53,7 @@ const mapStateToProps = createStructuredSelector({
   loadingError: selectLoadingError(),
   loading: selectLoading(),
   showConfirm: selectShowConfirm(),
+  deletePollError: selectDeletePollError(),
 });
 
 function mapDispatchToProps(dispatch) {
