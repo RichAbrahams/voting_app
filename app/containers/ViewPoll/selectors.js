@@ -32,6 +32,12 @@ const selectId = () => createSelector(
   (substate) => substate.get('id')
 );
 
+const selectVoteSaved = () => createSelector(
+  selectViewResultDomain(),
+  (substate) => substate.get('voteSaved')
+);
+
+
 export {
   selectLoadPollError,
   selectFinishedLoading,
@@ -39,4 +45,5 @@ export {
   selectQuestion,
   selectOptions,
   selectId,
+  selectVoteSaved,
 };

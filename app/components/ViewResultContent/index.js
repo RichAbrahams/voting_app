@@ -32,7 +32,7 @@ function ViewResultContent(props) {
 }
 
 ViewResultContent.propTypes = {
-  loadPollResult: React.PropTypes.func,
+  loadPollResult: React.PropTypes.bool,
   pollResultError: React.PropTypes.bool,
   createdBy: React.PropTypes.string,
   question: React.PropTypes.string,

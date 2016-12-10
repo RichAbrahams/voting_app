@@ -9,9 +9,11 @@ import PageTitle from '../PageTitle';
 import Wrapper from '../InnerWrapper';
 import LoadError from '../LoadError';
 import ViewPollOptions from '../ViewPollOptions';
+import ViewPollVoteSaved from '../ViewPollVoteSaved';
 
 function ViewPollContent(props) {
-  const { loadPollError, createdBy, question, options, url, id, loadPoll, saveVote } = props;
+  const { loadPollError, createdBy, question, options, url, id, loadPoll, saveVote, voteSaved,
+  loadResultPage } = props;
   const text = 'failed to load data';
   return (
     <Wrapper>
@@ -21,7 +23,11 @@ function ViewPollContent(props) {
         reload={loadPoll}
         target={url}
       />}
-      {!loadPollError && <ViewPollOptions
+      {voteSaved && <ViewPollVoteSaved
+        loadResultPage={loadResultPage}
+        url={url}
+      />}
+      {(!loadPollError && !voteSaved) && <ViewPollOptions
         createdBy={createdBy}
         question={question}
         options={options}
@@ -42,6 +48,8 @@ ViewPollContent.propTypes = {
   url: React.PropTypes.string,
   id: React.PropTypes.string,
   saveVote: React.PropTypes.func,
+  voteSaved: React.PropTypes.bool,
+  loadResultPage: React.PropTypes.bool,
 };
 
 export default ViewPollContent;

@@ -10,7 +10,6 @@ describe('homePageReducer', () => {
       polls: false,
       loadingError: false,
       pollCount: false,
-      voted: [],
     }));
   });
 });

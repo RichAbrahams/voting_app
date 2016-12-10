@@ -28,16 +28,10 @@ const selectPollCount = () => createSelector(
   (homeState) => homeState.get('pollCount')
 );
 
-const selectVoted = () => createSelector(
-  selectHome(),
-  (homeState) => homeState.get('voted')
-);
-
 export {
   selectLoading,
   selectCurrentPage,
   selectLoadingError,
   selectPolls,
   selectPollCount,
-  selectVoted,
 };

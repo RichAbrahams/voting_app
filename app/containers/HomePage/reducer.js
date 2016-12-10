@@ -15,11 +15,8 @@ import {
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
-  GET_VOTED_FROM_LOCAL_STORAGE,
 } from './constants';
-import {
-  SAVE_VOTE_SUCCESS,
-} from '../ViewPoll/constants';
+
 
 const initialState = fromJS({
   loading: true,
@@ -27,7 +24,6 @@ const initialState = fromJS({
   polls: false,
   loadingError: false,
   pollCount: false,
-  voted: [],
 });
 
 function homePageReducer(state = initialState, action) {
@@ -81,14 +77,6 @@ function homePageReducer(state = initialState, action) {
     case PREVIOUS_POLLS_LOADING_ERROR:
       return state
         .set('loadingError', true);
-    case GET_VOTED_FROM_LOCAL_STORAGE: {
-      return state
-        .set('voted', fromJS(action.voted));
-    }
-    case SAVE_VOTE_SUCCESS: {
-      return state
-        .set('voted', fromJS(action.data.voted));
-    }
     default:
       return state;
   }

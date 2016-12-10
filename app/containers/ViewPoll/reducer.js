@@ -9,6 +9,7 @@ import {
   LOAD_POLL_SUCCESS,
   LOAD_POLL_ERROR,
   SAVE_VOTE_SUCCESS,
+  RESET_COMPONENT,
 } from './constants';
 
 const initialState = fromJS({
@@ -22,6 +23,7 @@ const initialState = fromJS({
       votes: 0,
     },
   ],
+  voteSaved: false,
 });
 
 function viewPollReducer(state = initialState, action) {
@@ -42,7 +44,23 @@ function viewPollReducer(state = initialState, action) {
           .set('createdBy', '')
           .set('options', fromJS([]));
     case SAVE_VOTE_SUCCESS:
-      return state;
+      return state
+          .set('voteSaved', true);
+    case RESET_COMPONENT:
+      return state
+          .merge({
+            loadPollError: false,
+            finishedLoading: false,
+            id: '',
+            question: '',
+            createdBy: '',
+            options: [
+              { opt: '',
+                votes: 0,
+              },
+            ],
+            voteSaved: false,
+          });
     default:
       return state;
   }

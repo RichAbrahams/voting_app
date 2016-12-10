@@ -16,7 +16,6 @@ import {
   NEXT_POLLS_LOADING_ERROR,
   PREVIOUS_POLLS_LOADED,
   PREVIOUS_POLLS_LOADING_ERROR,
-  GET_VOTED_FROM_LOCAL_STORAGE,
 } from './constants';
 
 
@@ -95,14 +94,5 @@ export function previousPollsLoaded(data) {
 export function previousPollsLoadingError() {
   return {
     type: PREVIOUS_POLLS_LOADING_ERROR,
-  };
-}
-
-// localStorage middleware actions
-
-export function getVotedFromLocalStorage(voted) {
-  return {
-    type: GET_VOTED_FROM_LOCAL_STORAGE,
-    voted,
   };
 }

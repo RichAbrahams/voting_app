@@ -20,7 +20,7 @@ export class Header extends React.PureComponent { // eslint-disable-line react/p
     return (
       <Wrapper>
         <div onClick={() => this.props.changePage('/')}>
-          <img src={Logo} alt="Opinu - Logo" />
+          <img src={Logo} alt="Opinu - Logo" height="95" width="225" />
         </div>
         <Navigation
           username={this.props.username}

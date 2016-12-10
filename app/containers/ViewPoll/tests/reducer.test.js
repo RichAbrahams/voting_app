@@ -15,6 +15,7 @@ describe('viewPollReducer', () => {
           votes: 0,
         },
       ],
+      voteSaved: false,
     }));
   });
 });

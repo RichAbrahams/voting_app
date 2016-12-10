@@ -11,6 +11,7 @@ import {
   SAVE_VOTE,
   SAVE_VOTE_SUCCESS,
   SAVE_VOTE_ERROR,
+  RESET_COMPONENT,
 } from './constants';
 
 export function loadPoll(url) {
@@ -50,5 +51,12 @@ export function saveVoteSuccess(data) {
 export function saveVoteError() {
   return {
     type: SAVE_VOTE_ERROR,
+  };
+}
+
+
+export function resetComponent() {
+  return {
+    type: RESET_COMPONENT,
   };
 }

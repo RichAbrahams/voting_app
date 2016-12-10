@@ -13,6 +13,8 @@ export default styled.li`
   min-height: 110px;
   justify-content: center;
   font-size: 1.25em;
+  background: #335685;
+  color: white;
   &:hover {
   cursor: pointer;
   background: #5e8c5e;

@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.3905714"
-     inkscape:cx="155.5261"
+     inkscape:cx="93.82537"
      inkscape:cy="31.701886"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -51,7 +51,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -62,53 +62,53 @@
      transform="translate(-73.213988,-659.53237)">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:76.20146942px;line-height:125%;font-family:'Bitstream Charter';-inkscape-font-specification:'Bitstream Charter';letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       x="69.937325"
-       y="711.95898"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:75.95778656px;line-height:125%;font-family:'Bitstream Charter';-inkscape-font-specification:'Bitstream Charter';letter-spacing:0px;word-spacing:0px;fill:#333333;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       x="69.9478"
+       y="712.09814"
        id="text4885"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan4887"
-         x="69.937325"
-         y="711.95898">OPINU</tspan></text>
+         x="69.9478"
+         y="712.09814">OPINU</tspan></text>
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899"
-       width="37.243965"
-       height="17.000004"
-       x="76.715973"
-       y="721.66833" />
+       width="37.124863"
+       height="16.945641"
+       x="76.704773"
+       y="721.77643" />
     <rect
        style="fill:#335685;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2"
-       width="37.989044"
-       height="34.000008"
-       x="121.78968"
-       y="721.46832" />
+       width="37.867561"
+       height="33.891281"
+       x="121.63434"
+       y="721.57703" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-9"
-       width="37.989044"
-       height="17.000004"
-       x="166.93388"
-       y="721.66833"
-       inkscape:transform-center-x="-4.7487414"
-       inkscape:transform-center-y="3.7740812" />
+       width="37.867561"
+       height="16.945641"
+       x="166.63419"
+       y="721.77643"
+       inkscape:transform-center-x="-4.7335621"
+       inkscape:transform-center-y="3.7620178" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-1"
-       width="37.989044"
-       height="17.000004"
-       x="212.07797"
-       y="721.66833" />
+       width="37.867561"
+       height="16.945641"
+       x="211.63391"
+       y="721.77643" />
     <rect
        style="fill:#333333;fill-opacity:1;stroke:none;stroke-opacity:1"
        id="rect4899-2-1-2"
-       width="37.989044"
-       height="17.000004"
-       x="257.22232"
-       y="721.66833"
-       inkscape:transform-center-x="20.577381"
-       inkscape:transform-center-y="8.3865685" />
+       width="37.867561"
+       height="16.945641"
+       x="256.63388"
+       y="721.77643"
+       inkscape:transform-center-x="20.511582"
+       inkscape:transform-center-y="8.359755" />
   </g>
 </svg>

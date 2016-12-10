@@ -6,10 +6,11 @@
 
 import React from 'react';
 import { connect } from 'react-redux';
+import { push } from 'react-router-redux';
 import SectionWrapper from 'components/SectionWrapper';
 import { createStructuredSelector } from 'reselect';
-import { loadPoll, saveVote } from './actions';
-import { selectLoadPollError, selectCreatedBy, selectQuestion, selectOptions, selectId, selectFinishedLoading } from './selectors';
+import { loadPoll, saveVote, resetComponent } from './actions';
+import { selectLoadPollError, selectCreatedBy, selectQuestion, selectOptions, selectId, selectFinishedLoading, selectVoteSaved } from './selectors';
 import ViewPollContent from 'components/ViewPollContent';
 
 export class ViewPoll extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
@@ -17,6 +18,10 @@ export class ViewPoll extends React.PureComponent { // eslint-disable-line react
   componentDidMount() {
     const url = this.props.params.slug;
     this.props.loadPoll(url);
+  }
+
+  componentWillUnmount() {
+    this.props.resetComponent();
   }
 
   render() {
@@ -31,6 +36,8 @@ export class ViewPoll extends React.PureComponent { // eslint-disable-line react
           id={this.props.id}
           loadPoll={this.props.loadPoll}
           saveVote={this.props.saveVote}
+          voteSaved={this.props.voteSaved}
+          loadResultPage={this.props.loadResultPage}
         />}
       </SectionWrapper>
     );
@@ -48,6 +55,9 @@ ViewPoll.propTypes = {
   options: React.PropTypes.object,
   id: React.PropTypes.string,
   saveVote: React.PropTypes.func,
+  voteSaved: React.PropTypes.bool,
+  loadResultPage: React.PropTypes.func,
+  resetComponent: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -57,12 +67,15 @@ const mapStateToProps = createStructuredSelector({
   question: selectQuestion(),
   options: selectOptions(),
   id: selectId(),
+  voteSaved: selectVoteSaved(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     loadPoll: (url) => dispatch(loadPoll(url)),
     saveVote: (vote) => dispatch(saveVote(vote)),
+    loadResultPage: (url) => dispatch(push(`/viewresult/${url}`)),
+    resetComponent: () => dispatch(resetComponent()),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPoll);

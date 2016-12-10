@@ -7,6 +7,7 @@ describe('headerReducer', () => {
     expect(headerReducer(undefined, {})).toEqual(fromJS({
       username: 'potato',
       token: null,
+      voted: [],
     }));
   });
 });

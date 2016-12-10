@@ -7,7 +7,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import { selectLoading, selectLoadingError, selectPolls, selectPollCount, selectCurrentPage, selectVoted } from './selectors';
+import { selectLoading, selectLoadingError, selectPolls, selectPollCount, selectCurrentPage } from './selectors';
+import { selectVoted } from '../Header/selectors';
 import { createStructuredSelector } from 'reselect';
 import LoadingIndicator from 'components/LoadingIndicator';
 import SectionWrapper from 'components/SectionWrapper';

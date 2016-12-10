@@ -12,7 +12,13 @@ const selectToken = () => createSelector(
   (substate) => substate.get('token'),
 );
 
+const selectVoted = () => createSelector(
+  selectHeaderDomain(),
+  (homeState) => homeState.get('voted')
+);
+
 export {
   selectUsername,
   selectToken,
+  selectVoted,
 };
