@@ -71,8 +71,8 @@ module.exports = (options) => ({
     ],
     mainFields: [
       'browser',
-      'jsnext:main',
-      'main',
+      'main',   // switched due to redux-form issue
+      'jsnext:main', // switched due to redux-form issue
     ],
   },
   devtool: options.devtool,

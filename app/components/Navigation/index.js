@@ -7,9 +7,10 @@
 import React from 'react';
 import Wrapper from './Wrapper';
 import NavLink from './NavLink';
+import LogOutLink from './LogOutLink';
 
 function Navigation(props) {
-  const { username, changePage } = props;
+  const { username, changePage, logOut } = props;
   return (
     <Wrapper>
       {<NavLink
@@ -42,11 +43,10 @@ function Navigation(props) {
         changePage={changePage}
         linkTo="/newpoll"
       />}
-      {username && <NavLink
+      {username && <LogOutLink
         iconName="sign-out"
         text="Log Out"
-        changePage={changePage}
-        linkTo="/signout"
+        logOut={logOut}
       />}
     </Wrapper>
   );
@@ -55,6 +55,7 @@ function Navigation(props) {
 Navigation.propTypes = {
   username: React.PropTypes.string,
   changePage: React.PropTypes.func,
+  logOut: React.PropTypes.func,
 };
 
 export default Navigation;

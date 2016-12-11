@@ -7,6 +7,7 @@ import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
 import headerReducer from 'containers/Header/reducer';
+import { reducer as reduxFormReducer } from 'redux-form/immutable';
 /*
  * routeReducer
  *
@@ -41,7 +42,8 @@ function routeReducer(state = routeInitialState, action) {
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
-    ...asyncReducers,
     header: headerReducer,
+    reduxFormReducer,
+    ...asyncReducers,
   });
 }

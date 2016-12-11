@@ -8,6 +8,8 @@ import { fromJS } from 'immutable';
 
 import {
   GET_VOTED_FROM_LOCAL_STORAGE,
+  GET_TOKEN_FROM_LOCAL_STORAGE,
+  LOG_OUT,
 } from './constants';
 
 import {
@@ -26,9 +28,18 @@ function headerReducer(state = initialState, action) {
       return state
         .set('voted', fromJS(action.voted));
     }
+    case GET_TOKEN_FROM_LOCAL_STORAGE: {
+      return state
+        .set('token', fromJS(action.token));
+    }
     case SAVE_VOTE_SUCCESS: {
       return state
         .set('voted', fromJS(action.data.voted));
+    }
+    case LOG_OUT: {
+      return state
+        .set('username', null)
+        .set('token', null);
     }
     default:
       return state;

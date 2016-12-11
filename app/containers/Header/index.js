@@ -13,6 +13,7 @@ import Navigation from 'components/Navigation';
 import { selectUsername } from './selectors';
 import { push } from 'react-router-redux';
 import { createStructuredSelector } from 'reselect';
+import { logOut } from './actions';
 
 export class Header extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
@@ -25,6 +26,7 @@ export class Header extends React.PureComponent { // eslint-disable-line react/p
         <Navigation
           username={this.props.username}
           changePage={this.props.changePage}
+          logOut={this.props.logOut}
         />
       </Wrapper>
     );
@@ -34,6 +36,7 @@ export class Header extends React.PureComponent { // eslint-disable-line react/p
 Header.propTypes = {
   username: React.PropTypes.string,
   changePage: React.PropTypes.func,
+  logOut: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -43,6 +46,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     changePage: (page) => dispatch(push(page)),
+    logOut: () => dispatch(logOut()),
   };
 }
 

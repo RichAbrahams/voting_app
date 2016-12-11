@@ -2,7 +2,7 @@
 /* eslint no-console: 0 */
 /* eslint consistent-return: 0 */
 /* eslint no-param-reassign: 0 */
-import { GET_VOTED_FROM_LOCAL_STORAGE, GET_TOKEN_FROM_LOCAL_STORAGE } from '../containers/Header/constants';
+import { GET_VOTED_FROM_LOCAL_STORAGE, GET_TOKEN_FROM_LOCAL_STORAGE, LOG_OUT } from '../containers/Header/constants';
 import { SAVE_VOTE_SUCCESS } from '../containers/ViewPoll/constants';
 
 export function getVoted({ dispatch }) {
@@ -39,8 +39,12 @@ export function setVoted({ dispatch }) {
   };
 }
 
-export function setToken({ dispatch }) {
+export function deleteToken({ dispatch }) {
   return (next) => (action) => {
+    if (action.type !== LOG_OUT) {
+      return next(action);
+    }
+    localStorage.removeItem('token');
     next(action);
   };
 }

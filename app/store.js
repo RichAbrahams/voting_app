@@ -8,7 +8,7 @@ import { routerMiddleware } from 'react-router-redux';
 import createSagaMiddleware from 'redux-saga';
 import createReducer from './reducers';
 const sagaMiddleware = createSagaMiddleware();
-import { getVoted, getToken, setVoted, setToken } from './middleware/localStorageManager';
+import { getVoted, getToken, setVoted, deleteToken } from './middleware/localStorageManager';
 import { nextScrollWindow, previousScrollWindow } from './middleware/resetScrollPosition';
 export default function configureStore(initialState = {}, history) {
   // Create the store with two middlewares
@@ -20,7 +20,7 @@ export default function configureStore(initialState = {}, history) {
     getVoted,
     getToken,
     setVoted,
-    setToken,
+    deleteToken,
     nextScrollWindow,
     previousScrollWindow,
   ];
