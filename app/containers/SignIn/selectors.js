@@ -1,25 +1,12 @@
 import { createSelector } from 'reselect';
 
-/**
- * Direct selector to the signIn state domain
- */
 const selectSignInDomain = () => (state) => state.get('signIn');
 
-/**
- * Other specific selectors
- */
-
-
-/**
- * Default selector used by SignIn
- */
-
-const selectSignIn = () => createSelector(
+const selectSignInSuccess = () => createSelector(
   selectSignInDomain(),
-  (substate) => substate.toJS()
+  (substate) => substate.get('signInSuccess')
 );
 
-export default selectSignIn;
 export {
-  selectSignInDomain,
+selectSignInSuccess,
 };

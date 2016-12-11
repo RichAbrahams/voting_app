@@ -1,18 +1,18 @@
 import expect from 'expect';
 import {
-  defaultAction,
+  signInSuccess,
 } from '../actions';
 import {
-  DEFAULT_ACTION,
+  SIGN_IN_SUCCESS,
 } from '../constants';
 
 describe('SignIn actions', () => {
-  describe('Default Action', () => {
-    it('has a type of DEFAULT_ACTION', () => {
+  describe('signInSuccess', () => {
+    it('has a type of SIGN_IN_SUCCESS', () => {
       const expected = {
-        type: DEFAULT_ACTION,
+        type: SIGN_IN_SUCCESS,
       };
-      expect(defaultAction()).toEqual(expected);
+      expect(signInSuccess()).toEqual(expected);
     });
   });
 });

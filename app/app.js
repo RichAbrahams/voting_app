@@ -20,7 +20,6 @@ import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
 import configureStore from './store';
-import { getVotedFromLocalStorage, getTokenFromLocalStorage } from './containers/Header/actions';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css';
@@ -83,6 +82,3 @@ render();
 // we do not want it installed
 
 // Custom Middleware
-
-store.dispatch(getVotedFromLocalStorage());
-store.dispatch(getTokenFromLocalStorage());

@@ -4,6 +4,8 @@ import { fromJS } from 'immutable';
 
 describe('signInReducer', () => {
   it('returns the initial state', () => {
-    expect(signInReducer(undefined, {})).toEqual(fromJS({}));
+    expect(signInReducer(undefined, {})).toEqual(fromJS({
+      signInSuccess: false,
+    }));
   });
 });

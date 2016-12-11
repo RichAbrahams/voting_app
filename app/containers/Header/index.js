@@ -13,9 +13,14 @@ import Navigation from 'components/Navigation';
 import { selectUsername } from './selectors';
 import { push } from 'react-router-redux';
 import { createStructuredSelector } from 'reselect';
-import { logOut } from './actions';
+import { logOut, getVotedFromLocalStorage, getTokenFromLocalStorage } from './actions';
 
 export class Header extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  componentWillMount() {
+    this.props.getVotedFromLocalStorage();
+    this.props.getTokenFromLocalStorage();
+  }
 
   render() {
     return (
@@ -37,6 +42,8 @@ Header.propTypes = {
   username: React.PropTypes.string,
   changePage: React.PropTypes.func,
   logOut: React.PropTypes.func,
+  getVotedFromLocalStorage: React.PropTypes.func,
+  getTokenFromLocalStorage: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -47,6 +54,8 @@ function mapDispatchToProps(dispatch) {
   return {
     changePage: (page) => dispatch(push(page)),
     logOut: () => dispatch(logOut()),
+    getVotedFromLocalStorage: () => dispatch(getVotedFromLocalStorage()),
+    getTokenFromLocalStorage: () => dispatch(getTokenFromLocalStorage()),
   };
 }
 

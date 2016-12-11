@@ -1,27 +1,30 @@
-/*
- *
- * SignIn
- *
- */
-
 import React from 'react';
 import { connect } from 'react-redux';
-import selectSignIn from './selectors';
+import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
-import SignInContent from 'components/SignInContent';
+import {} from './actions';
+import SignInForm from 'components/SignInForm';
 
 export class SignIn extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+
+  handleSubmit(credentials) {
+    console.log(credentials.toJS()); // eslint-disable-line
+  }
+
   render() {
     return (
       <SectionWrapper>
-        <SignInContent />
+        <SignInForm onSubmit={this.handleSubmit} />
       </SectionWrapper>
-
     );
   }
 }
 
-const mapStateToProps = selectSignIn();
+SignIn.propTypes = {
+};
+
+const mapStateToProps = createStructuredSelector({
+});
 
 function mapDispatchToProps(dispatch) {
   return {

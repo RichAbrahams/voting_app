@@ -49,7 +49,7 @@ ViewPollContent.propTypes = {
   id: React.PropTypes.string,
   saveVote: React.PropTypes.func,
   voteSaved: React.PropTypes.bool,
-  loadResultPage: React.PropTypes.bool,
+  loadResultPage: React.PropTypes.func,
 };
 
 export default ViewPollContent;
