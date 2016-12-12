@@ -2,25 +2,38 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
-import {} from './actions';
+import { signIn } from './actions';
 import SignInForm from 'components/SignInForm';
+import Wrapper from 'components/InnerWrapper';
+import PageTitle from 'components/PageTitle';
+
 
 export class SignIn extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
+  constructor(props, context) {
+    super(props, context);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
   handleSubmit(credentials) {
-    console.log(credentials.toJS()); // eslint-disable-line
+    return new Promise((resolve, reject) => {
+      this.props.signIn({ resolve, reject, credentials });
+    });
   }
 
   render() {
     return (
       <SectionWrapper>
-        <SignInForm onSubmit={this.handleSubmit} />
+        <Wrapper>
+          <PageTitle text="Sign In" />
+          <SignInForm onSubmit={this.handleSubmit} />
+        </Wrapper>
       </SectionWrapper>
     );
   }
 }
 
 SignIn.propTypes = {
+  signIn: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -28,7 +41,7 @@ const mapStateToProps = createStructuredSelector({
 
 function mapDispatchToProps(dispatch) {
   return {
-    dispatch,
+    signIn: (credentials) => dispatch(signIn(credentials)),
   };
 }
 

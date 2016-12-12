@@ -10,16 +10,18 @@ import { signInSuccess } from './actions';
 
 export function* signInRequest(action) {
   const requestURL = '/api/signin';
-  const payload = JSON.stringify();
+  const credentials = action.data.credentials.toJS();
+  const payload = JSON.stringify(credentials);
   try {
     const makeReq = yield call(request, requestURL, { method: 'post', body: payload });
     if (makeReq.success === true) {
       yield put(signInSuccess(makeReq));
     } else {
-      action.data.reject(new SubmissionError(makeReq.error));
+      const error = makeReq.error || { _error: 'could not connect to server' };
+      action.data.reject(new SubmissionError(error));
     }
   } catch (err) {
-    action.data.reject(new SubmissionError());
+    action.data.reject(new SubmissionError({ _error: 'could not connect to server' }));
   }
 }
 

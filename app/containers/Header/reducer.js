@@ -16,8 +16,12 @@ import {
   SAVE_VOTE_SUCCESS,
 } from '../ViewPoll/constants';
 
+import {
+  SIGN_IN_SUCCESS,
+} from '../SignIn/constants';
+
 const initialState = fromJS({
-  username: 'potato',
+  username: null,
   token: null,
   voted: [],
 });
@@ -40,6 +44,11 @@ function headerReducer(state = initialState, action) {
       return state
         .set('username', null)
         .set('token', null);
+    }
+    case SIGN_IN_SUCCESS: {
+      return state
+        .set('username', action.data.userName)
+        .set('token', action.data.token);
     }
     default:
       return state;

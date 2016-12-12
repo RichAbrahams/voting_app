@@ -17,9 +17,10 @@ export function signIn(data) {
   };
 }
 
-export function signInSuccess() {
+export function signInSuccess(data) {
   return {
     type: SIGN_IN_SUCCESS,
+    data,
   };
 }
 

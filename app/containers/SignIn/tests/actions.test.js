@@ -11,8 +11,9 @@ describe('SignIn actions', () => {
     it('has a type of SIGN_IN_SUCCESS', () => {
       const expected = {
         type: SIGN_IN_SUCCESS,
+        data: 'test',
       };
-      expect(signInSuccess()).toEqual(expected);
+      expect(signInSuccess('test')).toEqual(expected);
     });
   });
 });

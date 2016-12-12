@@ -5,7 +5,7 @@ import { fromJS } from 'immutable';
 describe('headerReducer', () => {
   it('returns the initial state', () => {
     expect(headerReducer(undefined, {})).toEqual(fromJS({
-      username: 'potato',
+      username: null,
       token: null,
       voted: [],
     }));

@@ -4,6 +4,7 @@
 /* eslint no-param-reassign: 0 */
 import { GET_VOTED_FROM_LOCAL_STORAGE, GET_TOKEN_FROM_LOCAL_STORAGE, LOG_OUT } from '../containers/Header/constants';
 import { SAVE_VOTE_SUCCESS } from '../containers/ViewPoll/constants';
+import { SIGN_IN_SUCCESS } from '../containers/SignIn/constants';
 
 export function getVoted({ dispatch }) {
   return (next) => (action) => {
@@ -11,16 +12,6 @@ export function getVoted({ dispatch }) {
       return next(action);
     }
     action.voted = JSON.parse(localStorage.getItem('voted')) || [];
-    next(action);
-  };
-}
-
-export function getToken({ dispatch }) {
-  return (next) => (action) => {
-    if (action.type !== GET_TOKEN_FROM_LOCAL_STORAGE) {
-      return next(action);
-    }
-    action.token = JSON.parse(localStorage.getItem('token')) || null;
     next(action);
   };
 }
@@ -35,6 +26,27 @@ export function setVoted({ dispatch }) {
     Ls.push(url);
     localStorage.setItem('voted', JSON.stringify(Ls));
     action.data.voted = Ls;
+    next(action);
+  };
+}
+
+export function getToken({ dispatch }) {
+  return (next) => (action) => {
+    if (action.type !== GET_TOKEN_FROM_LOCAL_STORAGE) {
+      return next(action);
+    }
+    action.token = JSON.parse(localStorage.getItem('token')) || null;
+    next(action);
+  };
+}
+
+export function setToken({ dispatch }) {
+  return (next) => (action) => {
+    if (action.type !== SIGN_IN_SUCCESS) {
+      return next(action);
+    }
+    const token = action.data.token;
+    localStorage.setItem('token', JSON.stringify(token));
     next(action);
   };
 }
