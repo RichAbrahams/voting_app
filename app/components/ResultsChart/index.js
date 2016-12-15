@@ -7,11 +7,12 @@
 import React from 'react';
 import ChartCanvas from './ChartCanvas';
 import ChartTitle from './ChartTitle';
+import ChartWrapper from './ChartWrapper';
 
 function ResultsChart(props) {
   const { createdBy, question, options } = props;
   return (
-    <div>
+    <ChartWrapper className="chartWrapper">
       <ChartTitle
         createdBy={createdBy}
         question={question}
@@ -19,7 +20,7 @@ function ResultsChart(props) {
       <ChartCanvas
         options={options}
       />
-    </div>
+    </ChartWrapper>
   );
 }
 

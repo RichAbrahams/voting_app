@@ -3,11 +3,20 @@ import {
   loadPoll,
   loadPollSuccess,
   loadPollError,
+  saveVote,
+  saveVoteSuccess,
+  saveVoteError,
+  resetComponent,
 } from '../actions';
 import {
-  LOAD_POLL,
-  LOAD_POLL_SUCCESS,
-  LOAD_POLL_ERROR,
+    LOAD_POLL,
+    LOAD_POLL_SUCCESS,
+    LOAD_POLL_ERROR,
+    SAVE_VOTE,
+    SAVE_VOTE_SUCCESS,
+    SAVE_VOTE_ERROR,
+    RESET_COMPONENT,
+
 } from '../constants';
 
 
@@ -36,6 +45,40 @@ describe('ViewPoll actions', () => {
         type: LOAD_POLL_ERROR,
       };
       expect(loadPollError()).toEqual(expected);
+    });
+  });
+  describe('saveVote', () => {
+    it('has a type of SAVE_VOTE', () => {
+      const expected = {
+        type: SAVE_VOTE,
+        vote: 'test',
+      };
+      expect(saveVote('test')).toEqual(expected);
+    });
+  });
+  describe('saveVoteSuccess', () => {
+    it('has a type of SAVE_VOTE_SUCCESS', () => {
+      const expected = {
+        type: SAVE_VOTE_SUCCESS,
+        data: 'test',
+      };
+      expect(saveVoteSuccess('test')).toEqual(expected);
+    });
+  });
+  describe('saveVoteError', () => {
+    it('has a type of SAVE_VOTE_ERROR', () => {
+      const expected = {
+        type: SAVE_VOTE_ERROR,
+      };
+      expect(saveVoteError()).toEqual(expected);
+    });
+  });
+  describe('resetComponent', () => {
+    it('has a type of RESET_COMPONENT', () => {
+      const expected = {
+        type: RESET_COMPONENT,
+      };
+      expect(resetComponent()).toEqual(expected);
     });
   });
 });

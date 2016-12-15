@@ -3,11 +3,13 @@ import {
   loadPollResult,
   loadPollResultSuccess,
   loadPollResultError,
+  resetChart,
 } from '../actions';
 import {
   LOAD_POLL_RESULT,
   LOAD_POLL_RESULT_SUCCESS,
   LOAD_POLL_RESULT_ERROR,
+  RESET_CHART,
 } from '../constants';
 
 describe('ViewResult actions', () => {
@@ -35,6 +37,14 @@ describe('ViewResult actions', () => {
         type: LOAD_POLL_RESULT_ERROR,
       };
       expect(loadPollResultError()).toEqual(expected);
+    });
+  });
+  describe('resetChart', () => {
+    it('has a type of RESET_CHART', () => {
+      const expected = {
+        type: RESET_CHART,
+      };
+      expect(resetChart()).toEqual(expected);
     });
   });
 });

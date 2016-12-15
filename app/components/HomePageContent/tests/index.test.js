@@ -25,38 +25,30 @@ describe('<HomePageContent />', () => {
       viewPoll: () => {},
       viewResult: () => {},
     };
+    renderedComponent = shallow(
+      <HomePageContent {...props} />
+    );
   });
-  it('should render <HomePagePolls> & <HomePagePager> when polls exist', () => {
-    renderedComponent = shallow(<HomePageContent {...props} />);
-    expect(renderedComponent.contains(
-      <Wrapper>
-        <PageTitle text="Latest Polls" />
-        <HomePagePolls
-          polls={props.polls}
-          voted={props.voted}
-          viewPoll={props.viewPoll}
-          viewResult={props.viewResult}
-        />
-        <HomePagePager
-          pollCount={props.pollCount}
-          loadNextPolls={props.loadNextPolls}
-          loadPreviousPolls={props.loadPreviousPolls}
-          currentPage={props.currentPage}
-        />
-      </Wrapper>
-)).toEqual(true);
+  it('should render 1 Wrapper', () => {
+    expect(renderedComponent.find(Wrapper).length).toEqual(1);
   });
-  it('should render <LoadError> when loadingError is true ', () => {
+  it('should render 1 PageTitle', () => {
+    expect(renderedComponent.find(PageTitle).length).toEqual(1);
+  });
+  it('should render 1 HomePagePolls', () => {
+    expect(renderedComponent.find(HomePagePolls).length).toEqual(1);
+  });
+  it('should render 1 HomePagePager', () => {
+    expect(renderedComponent.find(HomePagePager).length).toEqual(1);
+  });
+  it('should not render LoadError', () => {
+    expect(renderedComponent.find(LoadError).length).toEqual(0);
+  });
+  it('should render 1 LoadError', () => {
     props = Object.assign(...props, { loadingError: true });
-    renderedComponent = shallow(<HomePageContent {...props} />);
-    expect(renderedComponent.contains(
-      <Wrapper>
-        <PageTitle text="Latest Polls" />
-        <LoadError
-          reload={props.loadPolls}
-          text="failed to load data"
-        />
-      </Wrapper>
-  )).toEqual(true);
+    renderedComponent = shallow(
+      <HomePageContent {...props} />
+    );
+    expect(renderedComponent.find(LoadError).length).toEqual(1);
   });
 });

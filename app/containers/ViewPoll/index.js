@@ -12,12 +12,19 @@ import { createStructuredSelector } from 'reselect';
 import { loadPoll, saveVote, resetComponent } from './actions';
 import { selectLoadPollError, selectCreatedBy, selectQuestion, selectOptions, selectId, selectFinishedLoading, selectVoteSaved } from './selectors';
 import ViewPollContent from 'components/ViewPollContent';
+import { selectUsername } from '../Header/selectors';
 
 export class ViewPoll extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
     const url = this.props.params.slug;
     this.props.loadPoll(url);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.username !== this.props.username) {
+      this.props.changePage('/');
+    }
   }
 
   componentWillUnmount() {
@@ -58,6 +65,8 @@ ViewPoll.propTypes = {
   voteSaved: React.PropTypes.bool,
   loadResultPage: React.PropTypes.func,
   resetComponent: React.PropTypes.func,
+  changePage: React.PropTypes.func,
+  username: React.PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -68,6 +77,7 @@ const mapStateToProps = createStructuredSelector({
   options: selectOptions(),
   id: selectId(),
   voteSaved: selectVoteSaved(),
+  username: selectUsername(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -76,6 +86,7 @@ function mapDispatchToProps(dispatch) {
     saveVote: (vote) => dispatch(saveVote(vote)),
     loadResultPage: (url) => dispatch(push(`/viewresult/${url}`)),
     resetComponent: () => dispatch(resetComponent()),
+    changePage: (page) => dispatch(push(page)),
   };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ViewPoll);

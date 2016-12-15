@@ -7,12 +7,13 @@
 import React from 'react';
 import Title from './Title';
 import ViewPollList from '../ViewPollList';
+import Wrapper from './Wrapper';
 
 function ViewPollOptions(props) {
   const { createdBy, question, options, id, url, saveVote } = props;
 
   return (
-    <div>
+    <Wrapper>
       <Title
         createdBy={createdBy}
         question={question}
@@ -23,7 +24,7 @@ function ViewPollOptions(props) {
         url={url}
         saveVote={saveVote}
       />
-    </div>
+    </Wrapper>
   );
 }
 

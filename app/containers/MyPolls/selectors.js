@@ -27,7 +27,6 @@ const selectDeletePollError = () => createSelector(
   (substate) => substate.get('deletePollError')
 );
 
-export default selectMyPolls;
 export {
   selectMyPolls,
   selectLoadingError,

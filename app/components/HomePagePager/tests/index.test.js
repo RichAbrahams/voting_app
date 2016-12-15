@@ -17,28 +17,23 @@ describe('<HomePagePager />', () => {
       pollCount: 50,
       currentPage: 5,
     };
+    renderedComponent = shallow(
+      <HomePagePager {...props} />
+    );
   });
-  it('should render pager buttons', () => {
-    const lastPage = Math.ceil(props.pollCount / 25);
-    const nextDisabled = props.currentPage === props.lastPage;
-    const previousDisabled = props.currentPage === 1;
-    renderedComponent = shallow(<HomePagePager {...props} />);
-    expect(renderedComponent.contains(<Wrapper>
-      <PagerButton onClick={props.loadPreviousPolls} disabled={previousDisabled}>
-        <FontAwesome
-          name="arrow-circle-o-left"
-          size="3x"
-        />
-      </PagerButton>
-      {props.currentPage} / {lastPage}
-      <PagerButton onClick={props.loadNextPolls} disabled={nextDisabled}>
-        <FontAwesome
-          className="icon"
-          name="arrow-circle-o-right"
-          size="3x"
-        />
-      </PagerButton>
-    </Wrapper>
-)).toEqual(true);
+  it('should render 1 Wrapper', () => {
+    expect(renderedComponent.find(Wrapper).length).toEqual(1);
+  });
+  it('should render 2 PagerButton', () => {
+    expect(renderedComponent.find(PagerButton).length).toEqual(2);
+  });
+  it('should render 2 FontAwesome', () => {
+    expect(renderedComponent.find(FontAwesome).length).toEqual(2);
+  });
+  it('handles clicks', () => {
+    const onClickSpy = expect.createSpy();
+    renderedComponent = shallow(<PagerButton onClick={onClickSpy} />);
+    renderedComponent.find('button').simulate('click');
+    expect(onClickSpy).toHaveBeenCalled();
   });
 });

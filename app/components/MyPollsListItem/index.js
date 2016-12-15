@@ -12,7 +12,6 @@ import ButtonWrapper from './ButtonWrapper';
 import ConfirmWrapper from './ConfirmWrapper';
 import Button from './Button';
 import ConfirmButton from './ConfirmButton';
-
 import Icon from './Icon';
 
 function MyPollsListItem(props) {
@@ -60,7 +59,7 @@ MyPollsListItem.propTypes = {
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
   setShowConfirm: React.PropTypes.func,
-  showConfirm: React.PropTypes.string,
+  showConfirm: React.PropTypes.bool,
 };
 
 export default MyPollsListItem;

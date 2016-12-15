@@ -9,6 +9,6 @@ export default styled.button`
   align-items: center;
   &:hover {
     cursor: pointer;
-    color: green;
+    color: #5e8c5e;
   }
 `;

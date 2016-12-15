@@ -8,9 +8,9 @@ export default styled.button`
   padding: 0.5em;
   text-align: center;
   transition: all 300ms;
-  background: #222;
+  background: #5e8c5e;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1rem;
   &:hover {
   cursor: pointer;
   background: #5e8c5e;

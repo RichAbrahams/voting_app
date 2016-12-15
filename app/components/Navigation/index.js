@@ -45,8 +45,8 @@ function Navigation(props) {
       />}
       {username && <LogOutLink
         iconName="sign-out"
-        text="Log Out"
         logOut={logOut}
+        text="Log Out"
       />}
     </Wrapper>
   );

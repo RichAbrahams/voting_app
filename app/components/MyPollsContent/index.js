@@ -35,7 +35,7 @@ deletePoll, setShowConfirm, showConfirm, deletePollError } = props;
         showConfirm={showConfirm}
       />}
       {(!deletePollError && !myPollsError && myPolls.isEmpty()) &&
-      <NoPollsMsg>You haven&apos;t created any polls yet.</NoPollsMsg>
+      <NoPollsMsg>You have not created any polls yet.</NoPollsMsg>
       }
     </Wrapper>
   );
@@ -48,7 +48,7 @@ MyPollsContent.propTypes = {
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
   setShowConfirm: React.PropTypes.func,
-  showConfirm: React.PropTypes.string,
+  showConfirm: React.PropTypes.bool,
   deletePollError: React.PropTypes.bool,
 };
 

@@ -16,7 +16,7 @@ function ViewPollVoteSaved(props) {
       <Icon
         className="icon"
         name="smile-o"
-        size="3x"
+        size="2x"
       />
       Thanks for voting!
       <RetryButton onClick={() => loadResultPage(url)}>View Results</RetryButton>

@@ -29,7 +29,7 @@ MyPollsList.propTypes = {
   viewPoll: React.PropTypes.func,
   deletePoll: React.PropTypes.func,
   setShowConfirm: React.PropTypes.func,
-  showConfirm: React.PropTypes.string,
+  showConfirm: React.PropTypes.bool,
 };
 
 

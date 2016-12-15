@@ -1,12 +1,13 @@
+
 import { createSelector } from 'reselect';
 
-const selectSignInDomain = () => (state) => state.get('signIn');
+const selectHome = () => (state) => state.get('signIn');
 
 const selectSignInSuccess = () => createSelector(
-  selectSignInDomain(),
-  (substate) => substate.get('signInSuccess')
+  selectHome(),
+  (homeState) => homeState.get('signInSuccess')
 );
 
 export {
-selectSignInSuccess,
+  selectSignInSuccess,
 };

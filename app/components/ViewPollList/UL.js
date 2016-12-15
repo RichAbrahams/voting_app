@@ -6,4 +6,5 @@ export default styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
 `;

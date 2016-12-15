@@ -12,12 +12,19 @@ import { loadUserPolls, setShowConfirm, deletePoll } from './actions';
 import { createStructuredSelector } from 'reselect';
 import SectionWrapper from 'components/SectionWrapper';
 import MyPollsContent from 'components/MyPollsContent';
+import { selectUsername } from '../Header/selectors';
 
 export class MyPolls extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
 
   componentDidMount() {
     this.props.loadUserPolls();
     this.props.setShowConfirm(null);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.username === null) {
+      this.props.changePage('/');
+    }
   }
 
   render() {
@@ -46,6 +53,7 @@ MyPolls.propTypes = {
   setShowConfirm: React.PropTypes.func,
   showConfirm: React.PropTypes.string,
   deletePollError: React.PropTypes.bool,
+  changePage: React.PropTypes.func,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -54,6 +62,7 @@ const mapStateToProps = createStructuredSelector({
   loading: selectLoading(),
   showConfirm: selectShowConfirm(),
   deletePollError: selectDeletePollError(),
+  username: selectUsername(),
 });
 
 function mapDispatchToProps(dispatch) {
@@ -62,6 +71,7 @@ function mapDispatchToProps(dispatch) {
     viewPoll: (id) => dispatch(push(`/viewresult/${id}`)),
     deletePoll: () => dispatch(deletePoll()),
     setShowConfirm: (url) => dispatch(setShowConfirm(url)),
+    changePage: (page) => dispatch(push(page)),
   };
 }
 

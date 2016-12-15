@@ -3,7 +3,7 @@
 
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-
+import ChartBox from './ChartBox';
 function ChartCanvas(props) {
   Chart.defaults.global.legend.display = false;
   Chart.defaults.global.tooltips.enabled = true;
@@ -51,14 +51,14 @@ function ChartCanvas(props) {
     maintainAspectRatio: false,
   };
   return (
-    <div>
+    <ChartBox>
       <Bar
         data={chartData}
         options={chartOptions}
-        width={250}
+        width={350}
         height={350}
       />
-    </div>
+    </ChartBox>
   );
 }
 

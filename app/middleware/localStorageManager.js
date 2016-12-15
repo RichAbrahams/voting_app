@@ -5,6 +5,7 @@
 import { GET_VOTED_FROM_LOCAL_STORAGE, GET_TOKEN_FROM_LOCAL_STORAGE, LOG_OUT } from '../containers/Header/constants';
 import { SAVE_VOTE_SUCCESS } from '../containers/ViewPoll/constants';
 import { SIGN_IN_SUCCESS } from '../containers/SignIn/constants';
+import { SIGN_UP_SUCCESS } from '../containers/SignUp/constants';
 
 export function getVoted({ dispatch }) {
   return (next) => (action) => {
@@ -42,7 +43,7 @@ export function getToken({ dispatch }) {
 
 export function setToken({ dispatch }) {
   return (next) => (action) => {
-    if (action.type !== SIGN_IN_SUCCESS) {
+    if ((action.type !== SIGN_IN_SUCCESS) && (action.type !== SIGN_UP_SUCCESS)) {
       return next(action);
     }
     const token = action.data.token;

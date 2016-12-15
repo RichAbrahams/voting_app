@@ -14,6 +14,7 @@ describe('<HomePage />', () => {
   let renderedComponent;
   beforeEach(() => {
     props = {
+      loading: false,
       loadingError: false,
       polls: {},
       pollCount: 15,
@@ -25,22 +26,20 @@ describe('<HomePage />', () => {
       viewPoll: () => {},
       viewResult: () => {},
     };
-  });
-  it('should render <HomePageContent> when loading is false', () => {
     renderedComponent = shallow(<HomePage {...props} />);
-    expect(renderedComponent.contains(
-      <SectionWrapper>
-        <HomePageContent
-          {... props}
-        />
-      </SectionWrapper>)).toEqual(true);
   });
-  it('should render <LoadingIndicator> when loading is true', () => {
+  it('should render a SectionWrapper', () => {
+    expect(renderedComponent.find(SectionWrapper).length).toEqual(1);
+  });
+  it('should render a HomePageContent', () => {
+    expect(renderedComponent.find(HomePageContent).length).toEqual(1);
+  });
+  it('should not render a LoadingIndicator', () => {
+    expect(renderedComponent.find(LoadingIndicator).length).toEqual(0);
+  });
+  it('should render a LoadingIndicator', () => {
     props = Object.assign(...props, { loading: true });
     renderedComponent = shallow(<HomePage {...props} />);
-    expect(renderedComponent.contains(
-      <SectionWrapper>
-        <LoadingIndicator />
-      </SectionWrapper>)).toEqual(true);
+    expect(renderedComponent.find(LoadingIndicator).length).toEqual(1);
   });
 });

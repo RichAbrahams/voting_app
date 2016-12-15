@@ -4,7 +4,6 @@ export default styled.div`
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  justify-content: center;
   width 100%;
   padding-top: 1em;
   align-items: center;

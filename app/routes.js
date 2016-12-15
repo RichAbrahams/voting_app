@@ -119,6 +119,46 @@ export default function createRoutes(store) {
         importModules.catch(errorLoading);
       },
     }, {
+      path: '/signup',
+      name: 'signUp',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/SignUp/reducer'),
+          System.import('containers/SignUp/sagas'),
+          System.import('containers/SignUp'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('signUp', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
+      path: '/newpoll',
+      name: 'newPoll',
+      getComponent(nextState, cb) {
+        const importModules = Promise.all([
+          System.import('containers/NewPoll/reducer'),
+          System.import('containers/NewPoll/sagas'),
+          System.import('containers/NewPoll'),
+        ]);
+
+        const renderRoute = loadModule(cb);
+
+        importModules.then(([reducer, sagas, component]) => {
+          injectReducer('newPoll', reducer.default);
+          injectSagas(sagas.default);
+          renderRoute(component);
+        });
+
+        importModules.catch(errorLoading);
+      },
+    }, {
       path: '*',
       name: 'notfound',
       getComponent(nextState, cb) {

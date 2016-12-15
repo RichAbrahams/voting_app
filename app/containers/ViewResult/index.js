@@ -11,6 +11,8 @@ import { createStructuredSelector } from 'reselect';
 import { loadPollResult, resetChart } from './actions';
 import { selectLoadPollResultError, selectCreatedBy, selectQuestion, selectOptions, selectFinishedLoading, selectTotalVotes } from './selectors';
 import ViewResultContent from 'components/ViewResultContent';
+import { push } from 'react-router-redux';
+import { selectUsername } from '../Header/selectors';
 
 export class ViewResult extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   componentDidMount() {
@@ -18,6 +20,11 @@ export class ViewResult extends React.PureComponent { // eslint-disable-line rea
     this.props.loadPollResult(url);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.username !== this.props.username) {
+      this.props.changePage('/');
+    }
+  }
   componentWillUnmount() {
     this.props.resetChart();
   }
@@ -50,6 +57,8 @@ ViewResult.propTypes = {
   options: React.PropTypes.object,
   totalVotes: React.PropTypes.number,
   resetChart: React.PropTypes.func,
+  changePage: React.PropTypes.func,
+  username: React.PropTypes.string,
 };
 
 const mapStateToProps = createStructuredSelector({
@@ -59,12 +68,14 @@ const mapStateToProps = createStructuredSelector({
   question: selectQuestion(),
   options: selectOptions(),
   totalVotes: selectTotalVotes(),
+  username: selectUsername(),
 });
 
 function mapDispatchToProps(dispatch) {
   return {
     loadPollResult: (url) => dispatch(loadPollResult(url)),
     resetChart: () => dispatch(resetChart()),
+    changePage: (page) => dispatch(push(page)),
   };
 }
 
